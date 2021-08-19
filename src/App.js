@@ -3,11 +3,11 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1 className="f2-l">Generate your password</h1>
-      <input placeholder="" />
-      <br />
-      <br />
-      <button className> Run timer </button>
+      <h1 className="f2-l">
+        This application generates a random password based on the criteria
+        provided by a user
+      </h1>
+      <button style={{ background: "green" }}> START </button>
     </div>
   );
 }
