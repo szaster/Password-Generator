@@ -1,4 +1,8 @@
+import React from "react";
 import "./App.css";
+import Options from "./components/Options";
+import NewPasswordButton from "./components/generateButton";
+import { Grid, Button, useMediaQuery, Hidden } from "@material-ui/core";
 
 function App() {
   function handleStartClick() {
@@ -11,11 +15,11 @@ function App() {
         criteria provided by a user
       </h1>
 
-      <button style={{ background: "lime" }} onClick={handleStartClick}>
+      <Button style={{ background: "lime" }} onClick={handleStartClick}>
         START
-      </button>
-
-      
+      </Button>
+      <Options />
+      <NewPasswordButton />
     </div>
   );
 }
