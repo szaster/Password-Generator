@@ -30,8 +30,8 @@ function App() {
       </Button> */}
       <Container maxWidth="sm" m={2}>
         <Paper elevation={3} outlined square m={2}>
-          <Typography variant="h3" component="h3">
-            Optionsfdjhjkerfev
+          <Typography variant="h5" component="h5">
+          Please select options for generating password
           </Typography>
           <Options />
         </Paper>
