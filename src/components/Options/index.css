@@ -1,9 +1,9 @@
 /* html, body {height:100%} */
 
 .Options-body {
-    display: grid;
-    grid-template-columns:  auto,auto,auto,auto;
-}  
+  display: grid;
+  grid-template-columns: 10em, auto, auto, 10em;
+}
 
 /* .Options-body {
     grid-column-start: 1 ;
