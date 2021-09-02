@@ -1,12 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography, Paper } from "@material-ui/core";
+import { Container, Grid, Typography, Paper, Box } from "@material-ui/core";
 // import "./index.css";
 import { withStyles } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import CharactersNumber from "./CharactersNumber";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -52,12 +53,25 @@ function Options() {
 
   return (
     <>
-      <Typography variant="subtitle1" gutterBottom>
-        Please select options for generating password
+      <Typography component="div" variant="subtitle1" gutterBottom>
+        <Box
+          borderBottom={1}
+          textAlign="center"
+          fontWeight="fontWeightMedium"
+          m={1}
+        >
+          Please select options for generating password
+        </Box>
       </Typography>
+
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          Options
+        <Grid item xs={12}>
+          # characters <CharactersNumber />
+        </Grid>
+        <Grid item xs={6} fontWeight="fontWeightMedium">
+          <Box textAlign="center" fontWeight="fontWeightMedium">
+            Options
+          </Box>
         </Grid>
         <Grid item xs={3}>
           <FormControlLabel
@@ -83,30 +97,31 @@ function Options() {
             label="uppercase letters"
           />
         </Grid>
-      </Grid>
-      <Grid item xs={3}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={state.specialCharacters}
-              onChange={handleChange}
-              name="specialCharacters"
-            />
-          }
-          label="special characters"
-        />
-      </Grid>
-      <Grid item xs={3}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={state.numbers}
-              onChange={handleChange}
-              name="numbers"
-            />
-          }
-          label="numbers"
-        />
+        <Grid item xs={6}></Grid>
+        <Grid item xs={3}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={state.specialCharacters}
+                onChange={handleChange}
+                name="specialCharacters"
+              />
+            }
+            label="special characters"
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={state.numbers}
+                onChange={handleChange}
+                name="numbers"
+              />
+            }
+            label="numbers"
+          />
+        </Grid>
       </Grid>
     </>
   );
