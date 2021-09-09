@@ -7,7 +7,7 @@ import theme from "./theme";
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
-    <CssBaseline />k
+    <CssBaseline />
     <App />
   </MuiThemeProvider>,
   document.getElementById("root")

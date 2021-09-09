@@ -1,42 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid, Typography, Paper, Box } from "@material-ui/core";
-// import "./index.css";
-import { withStyles } from "@material-ui/core/styles";
-import { green } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import CharactersNumber from "./CharactersNumber";
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: "center",
-//     color: theme.palette.text.secondary,
-//   },
-// }));
-
-// const useStyles = makeStyles((theme) => ({
-//   container: {
-//     display: "grid",
-//     gridTemplateColumns: "repeat(12,1fr)",
-//     gridGap: theme.spacing(3),
-//   },
-//   paper: {
-//     padding: theme.spacing(1),
-//     textAlign: "center",
-//     color: theme.palette.text.secondary,
-//     whiteSpace: "nowrap",
-//     marginBottom: theme.spacing(2, 0),
-//   },
-//   divider: {
-//     margin: theme.spacing(2, 0),
-//   },
-// }));
 
 function Options() {
   const [state, setState] = React.useState({
@@ -52,19 +20,20 @@ function Options() {
 
   return (
     <>
-      <Typography component="div" variant="subtitle1" gutterBottom>
-        <Box
-          borderBottom={1}
-          textAlign="center"
-          fontWeight="fontWeightMedium"
-          m={1}
-        >
-          Please select options for generating password
-        </Box>
-      </Typography>
-
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid style={{ paddingTop: 90 }} item xs={12}>
+          <Typography component="div" variant="subtitle1" gutterBottom>
+            <Box
+              borderBottom={1}
+              textAlign="center"
+              fontWeight="fontWeightMedium"
+              m={1}
+            >
+              Please select options for generating password
+            </Box>
+          </Typography>
+        </Grid>
+        <Grid style={{ paddingTop: 60 }} item xs={12}>
           <CharactersNumber />
         </Grid>
         <Grid item xs={6} fontWeight="fontWeightMedium">

@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Options from "./components/Options";
 import Header from "./components/Header";
-import CharacterNumber from "./components/CharactersNumber";
+import CharactersNumber from "./components/CharactersNumber";
 import NewPasswordButton from "./components/generateButton";
 import {
   Grid,
@@ -20,17 +20,11 @@ function App() {
   }
   return (
     <div className="App">
-      {/*<Button style={{ background: "lime" }} onClick={handleStartClick}>
-        START
-      </Button>{" "}
-      */}
-      <Container maxWidth="sm" m={6}>
-        <Header />
+      {/* <Hidden only="xs"> */}
+      <Header />
+      {/* </Hidden> */}
+      <Container maxWidth="sm" m={10}>
         <Paper elevation={10} outlined square m={20}>
-          {/* <Typography variant="h5" component="h5">
-          Please select options for generating password
-          </Typography> */}
-
           <Options />
         </Paper>
         <NewPasswordButton />
