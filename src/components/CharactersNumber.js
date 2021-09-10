@@ -5,7 +5,9 @@ import { Grid, Input, Slider, Box, Typography } from "@material-ui/core";
 // TODO! What is root: {r....}
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    // width: 450,
+    flexGrow: 1,
+    overflow: "hidden",
   },
   input: {
     width: 50,
@@ -15,9 +17,10 @@ const useStyles = makeStyles({
 function CharactersNumber() {
   const classes = useStyles();
   const [value, setValue] = React.useState(20);
+
   const handleInputChange = (event) => {
     console.log(event);
-    setValue(event.target.value === "" ? 0 : Number(event.target.value));
+    setValue(event.target.value === "" ? "" : Number(event.target.value));
   };
 
   const handleSliderChange = (event, newValue) => {
@@ -34,17 +37,13 @@ function CharactersNumber() {
 
   return (
     <div className={classes.root}>
-      {/* <Typography id="input-slider" gutter Bottom> */}
-
-      {/* Password length */}
-      {/* </Typography> */}
       <Grid container spacing={2} alignItems="center">
-        <Grid item style={{ padding: 30 }}>
+        <Grid item style={{ padding: 20 }}>
           <Box textAlign="center" fontWeight="fontWeightMedium">
             Password length
           </Box>
         </Grid>
-        <Grid item style={{ padding: 30 }}>
+        <Grid item xs={12} sm>
           <Input
             className={classes.input}
             value={value}
@@ -59,7 +58,7 @@ function CharactersNumber() {
             }}
           />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={12} sm>
           <Slider
             value={typeof value === "number" ? value : 0}
             onChange={handleSliderChange}

@@ -8,10 +8,10 @@ import CharactersNumber from "./CharactersNumber";
 
 function Options() {
   const [state, setState] = React.useState({
-    lowercase: true,
-    uppercase: true,
-    specialCharacters: true,
-    numbers: true,
+    lowercaseChecked: true,
+    uppercaseChecked: true,
+    specialCharactersChecked: true,
+    numbersChecked: true,
   });
 
   const handleChange = (event) => {
@@ -36,55 +36,50 @@ function Options() {
         <Grid style={{ paddingTop: 60 }} item xs={12}>
           <CharactersNumber />
         </Grid>
-        <Grid item xs={6} fontWeight="fontWeightMedium">
-          <Box textAlign="center" fontWeight="fontWeightMedium">
-            Options
-          </Box>
-        </Grid>
-        <Grid item xs={3}>
+
+        <Grid item justifyContent="flex-end" xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.lowercase}
+                checked={state.lowercaseChecked}
                 onChange={handleChange}
-                name="lowercase"
+                name="lowercaseChecked"
               />
             }
             label="lowercase letters"
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item justifyContent="flex-end" xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.uppercase}
+                checked={state.uppercaseChecked}
                 onChange={handleChange}
-                name="uppercase"
+                name="uppercaseChecked"
               />
             }
             label="uppercase letters"
           />
         </Grid>
-        <Grid item xs={6}></Grid>
-        <Grid item xs={3}>
+        <Grid item justifyContent="flex-end" xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.specialCharacters}
+                checked={state.specialCharactersChecked}
                 onChange={handleChange}
-                name="specialCharacters"
+                name="specialCharactersChecked"
               />
             }
             label="special characters"
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item justifyContent="flex-end" xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.numbers}
+                checked={state.numbersChecked}
                 onChange={handleChange}
-                name="numbers"
+                name="numbersChecked"
               />
             }
             label="numbers"
