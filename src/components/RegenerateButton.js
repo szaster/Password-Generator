@@ -1,8 +1,8 @@
 import React from "react";
 import Grid, { Button } from "@material-ui/core";
-import Icons from "@material-ui/icons";
+import Icons, { PinDropSharp } from "@material-ui/icons";
 
-const NewPasswordButton = () => {
+const RegeneratePasswordButton = () => {
   // password character set
   const lowerAlphas = "qwertyuiopasdfghjklzxcvbnm";
   const upperAlphas = lowerAlphas.toUpperCase();
@@ -10,10 +10,13 @@ const NewPasswordButton = () => {
   const special = "!@#$%^&*()_+=-;':/?.,|\\<>";
 
   return (
-    <Button style={{ background: "pink", margin: 20 }}>
-      Generate Password
+    <Button
+      style={{ background: "pink", margin: 20 }}
+      // onClick={props.generatePassword()}
+    >
+      Generate New Password
     </Button>
   );
 };
 
-export default NewPasswordButton;
+export default RegeneratePasswordButton;

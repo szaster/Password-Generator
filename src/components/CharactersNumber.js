@@ -31,7 +31,11 @@ function CharactersNumber(props) {
     if (props.passwordLength < 0) {
       props.setValue(0);
     } else if (props.passwordLength > 100) {
+      alert("Password length must be less than 100 characters");
       props.setValue(100);
+    } else if (props.passwordLength < 10) {
+      alert("Password length must be at least 10 characters");
+      props.setValue(10);
     }
   };
 
@@ -52,7 +56,7 @@ function CharactersNumber(props) {
             onBlur={handleBlur}
             inputProps={{
               step: 5,
-              min: 0,
+              min: 10,
               max: 100,
               type: "number",
             }}

@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Options from "./components/Options";
 import Header from "./components/Header";
-import NewPasswordButton from "./components/generateButton";
+import RegeneratePasswordButton from "./components/RegenerateButton";
 import {
   Grid,
   Button,
@@ -23,6 +23,13 @@ const initialOptions = {
 const initialPassword = generatePassword(initialOptions);
 
 function generatePassword(options) {
+  // const [state, setState] = React.useState({
+  //   lowercaseChecked: true,
+  //   uppercaseChecked: true,
+  //   specialCharactersChecked: true,
+  //   numbersChecked: true,
+  // });
+
   const numbersArray = window.crypto.getRandomValues(new Uint32Array(10));
   const numbers = numbersArray[0];
   console.log(numbersArray);
@@ -58,7 +65,7 @@ function App() {
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>
-        <NewPasswordButton />
+        <RegeneratePasswordButton password={password} />
       </Container>
     </div>
   );
