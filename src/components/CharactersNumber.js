@@ -14,24 +14,24 @@ const useStyles = makeStyles({
   },
 });
 
-function CharactersNumber() {
+function CharactersNumber(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(20);
+  // const [value, setValue] = React.useState(20);
 
   const handleInputChange = (event) => {
     console.log(event);
-    setValue(event.target.value === "" ? "" : Number(event.target.value));
+    props.setValue(event.target.value === "" ? "" : Number(event.target.value));
   };
 
   const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
+    props.setValue(newValue);
   };
 
   const handleBlur = () => {
-    if (value < 0) {
-      setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+    if (props.passwordLength < 0) {
+      props.setValue(0);
+    } else if (props.passwordLength > 100) {
+      props.setValue(100);
     }
   };
 
@@ -46,7 +46,7 @@ function CharactersNumber() {
         <Grid item xs={12} sm>
           <Input
             className={classes.input}
-            value={value}
+            value={props.passwordLength}
             margin="dense"
             onChange={handleInputChange}
             onBlur={handleBlur}
@@ -60,7 +60,11 @@ function CharactersNumber() {
         </Grid>
         <Grid item xs={12} sm>
           <Slider
-            value={typeof value === "number" ? value : 0}
+            value={
+              typeof props.passwordLength === "number"
+                ? props.passwordLength
+                : 0
+            }
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
           />

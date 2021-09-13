@@ -17,16 +17,16 @@ const initialOptions = {
   uppercase: true,
   specialCharacters: true,
   numbers: true,
-  passwordLength: 12,
+  passwordLength: 10,
 };
 
 const initialPassword = generatePassword(initialOptions);
 
 function generatePassword(options) {
-  const array = new Uint32Array(10);
-  window.crypto.getRandomValues(array);
-  console.log(array);
-  return `${array[0]}`;
+  const numbersArray = window.crypto.getRandomValues(new Uint32Array(10));
+  const numbers = numbersArray[0];
+  console.log(numbersArray);
+  return `${numbers}`;
 }
 
 function PasswordDisplay(props) {
@@ -37,6 +37,16 @@ function App() {
   const [options, setOptions] = React.useState(initialOptions);
   const [password, setPassword] = React.useState(initialPassword);
 
+  function handleNewOptions(newOptions) {
+    console.log(
+      "handleNewOptions function has been called and new options are:",
+      newOptions
+    );
+    setOptions(newOptions);
+    const newPassword = generatePassword(newOptions);
+    setPassword(newPassword);
+  }
+
   return (
     <div className="App">
       {/* <Hidden only="xs"> */}
@@ -45,7 +55,7 @@ function App() {
       <Container maxWidth="sm" m={10}>
         <Paper elevation={10} outlined square m={20}>
           generatePassword()
-          <Options />
+          <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>
         <NewPasswordButton />

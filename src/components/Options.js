@@ -1,12 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography, Paper, Box } from "@material-ui/core";
-import FormGroup from "@material-ui/core/FormGroup";
+import { Grid, Typography, Box } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import CharactersNumber from "./CharactersNumber";
 
-function Options() {
+function Options(props) {
   const [state, setState] = React.useState({
     lowercaseChecked: true,
     uppercaseChecked: true,
@@ -34,7 +32,15 @@ function Options() {
           </Typography>
         </Grid>
         <Grid style={{ paddingTop: 60 }} item xs={12}>
-          <CharactersNumber />
+          <CharactersNumber
+            passwordLength={props.options.passwordLength}
+            setValue={(newPasswordLength) => {
+              props.handleNewOptions({
+                ...props.options,
+                passwordLength: newPasswordLength,
+              });
+            }}
+          />
         </Grid>
 
         <Grid item justifyContent="flex-end" xs={12} sm={6}>
