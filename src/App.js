@@ -24,13 +24,6 @@ const initialOptions = {
 const initialPassword = generatePassword(initialOptions);
 
 function generatePassword(options) {
-  // const [state, setState] = React.useState({
-  //   lowercaseChecked: true,
-  //   uppercaseChecked: true,
-  //   specialCharactersChecked: true,
-  //   numbersChecked: true,
-  // });
-
   const numbersArray = window.crypto.getRandomValues(new Uint32Array(10));
   const numbers = numbersArray[0];
   console.log(numbersArray);

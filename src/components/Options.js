@@ -5,19 +5,29 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CharactersNumber from "./CharactersNumber";
 
 function Options(props) {
-  const [state, setState] = React.useState({
-    lowercaseChecked: true,
-    uppercaseChecked: true,
-    specialCharactersChecked: true,
-    numbersChecked: true,
-  });
+  // const [state, setState] = React.useState({
+  //   lowercaseChecked: true,
+  //   uppercaseChecked: true,
+  //   specialCharactersChecked: true,
+  //   numbersChecked: true,
+  // });
+
+  // const handleChange = (event) => {
+  //   setOptions({ ...options, [event.target.name]: event.target.checked });
+  // };
+  const options = props.options;
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    const checkBoxName = event.target.name;
+    const checkBoxState = event.target.checked;
+
+    props.handleNewOptions({
+      ...options,
+      [checkBoxName]: checkBoxState,
+    });
   };
 
   // todo: after this project is finished, experiment with value of options: will this component rerender if options are changed?
-  const options = props.options;
 
   /**
    * Takes new password length and sets options to the old value, except for the password length, which is updated.
@@ -56,7 +66,7 @@ function Options(props) {
               <Checkbox
                 checked={options.lowercase}
                 onChange={handleChange}
-                name="lowercaseChecked"
+                name="lowercase"
               />
             }
             label="lowercase letters"
@@ -68,7 +78,7 @@ function Options(props) {
               <Checkbox
                 checked={options.uppercase}
                 onChange={handleChange}
-                name="uppercaseChecked"
+                name="uppercase"
               />
             }
             label="uppercase letters"
@@ -80,7 +90,7 @@ function Options(props) {
               <Checkbox
                 checked={options.specialCharacters}
                 onChange={handleChange}
-                name="specialCharactersChecked"
+                name="specialCharacters"
               />
             }
             label="special characters"
@@ -92,7 +102,7 @@ function Options(props) {
               <Checkbox
                 checked={options.numbers}
                 onChange={handleChange}
-                name="numbersChecked"
+                name="numbers"
               />
             }
             label="numbers"
