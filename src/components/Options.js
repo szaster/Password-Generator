@@ -16,6 +16,18 @@ function Options(props) {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
+  // todo: after this project is finished, experiment with value of options: will this component rerender if options are changed?
+  const options = props.options;
+
+  /**
+   * Takes new password length and sets options to the old value, except for the password length, which is updated.
+   * @param {} newLength
+   */
+  const setPasswordLength = (newLength) => {
+    const newOptions = { ...props.options, passwordLength: newLength };
+    props.handleNewOptions(newOptions);
+  };
+
   return (
     <>
       <Grid container spacing={3}>
@@ -33,13 +45,8 @@ function Options(props) {
         </Grid>
         <Grid style={{ paddingTop: 60 }} item xs={12}>
           <CharactersNumber
-            passwordLength={props.options.passwordLength}
-            setValue={(newPasswordLength) => {
-              props.handleNewOptions({
-                ...props.options,
-                passwordLength: newPasswordLength,
-              });
-            }}
+            passwordLength={options.passwordLength}
+            setPasswordLength={setPasswordLength}
           />
         </Grid>
 
@@ -47,7 +54,7 @@ function Options(props) {
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.lowercaseChecked}
+                checked={options.lowercase}
                 onChange={handleChange}
                 name="lowercaseChecked"
               />
@@ -59,7 +66,7 @@ function Options(props) {
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.uppercaseChecked}
+                checked={options.uppercase}
                 onChange={handleChange}
                 name="uppercaseChecked"
               />
@@ -71,7 +78,7 @@ function Options(props) {
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.specialCharactersChecked}
+                checked={options.specialCharacters}
                 onChange={handleChange}
                 name="specialCharactersChecked"
               />
@@ -83,7 +90,7 @@ function Options(props) {
           <FormControlLabel
             control={
               <Checkbox
-                checked={state.numbersChecked}
+                checked={options.numbers}
                 onChange={handleChange}
                 name="numbersChecked"
               />

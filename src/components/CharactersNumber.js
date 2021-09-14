@@ -14,28 +14,31 @@ const useStyles = makeStyles({
   },
 });
 
+// const props = { passwordLength: options.passwordLength, setPasswordLength: setPasswordLength }
 function CharactersNumber(props) {
   const classes = useStyles();
   // const [value, setValue] = React.useState(20);
 
   const handleInputChange = (event) => {
     console.log(event);
-    props.setValue(event.target.value === "" ? "" : Number(event.target.value));
+    props.setPasswordLength(
+      event.target.value === "" ? "" : Number(event.target.value)
+    );
   };
 
   const handleSliderChange = (event, newValue) => {
-    props.setValue(newValue);
+    props.setPasswordLength(newValue);
   };
 
   const handleBlur = () => {
     if (props.passwordLength < 0) {
-      props.setValue(0);
+      props.setPasswordLength(0);
     } else if (props.passwordLength > 100) {
       alert("Password length must be less than 100 characters");
-      props.setValue(100);
+      props.setPasswordLength(100);
     } else if (props.passwordLength < 10) {
       alert("Password length must be at least 10 characters");
-      props.setValue(10);
+      props.setPasswordLength(10);
     }
   };
 

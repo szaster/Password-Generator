@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 
 const initialOptions = {
+  lowercase: true,
   uppercase: true,
   specialCharacters: true,
   numbers: true,
