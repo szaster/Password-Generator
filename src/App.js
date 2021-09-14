@@ -31,7 +31,7 @@ function generatePassword(options) {
 }
 
 function PasswordDisplay(props) {
-  return <Paper>{props.password}</Paper>;
+  return props.password;
 }
 
 function App() {
@@ -59,7 +59,10 @@ function App() {
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>
-        <RegeneratePasswordButton password={password} />
+        <RegeneratePasswordButton
+          handleNewOptions={handleNewOptions}
+          options={options}
+        />
       </Container>
     </div>
   );

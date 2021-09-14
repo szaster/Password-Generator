@@ -5,16 +5,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CharactersNumber from "./CharactersNumber";
 
 function Options(props) {
-  // const [state, setState] = React.useState({
-  //   lowercaseChecked: true,
-  //   uppercaseChecked: true,
-  //   specialCharactersChecked: true,
-  //   numbersChecked: true,
-  // });
-
-  // const handleChange = (event) => {
-  //   setOptions({ ...options, [event.target.name]: event.target.checked });
-  // };
   const options = props.options;
 
   const handleChange = (event) => {
