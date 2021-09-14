@@ -23,15 +23,23 @@ const initialOptions = {
 
 const initialPassword = generatePassword(initialOptions);
 
-function generatePassword(options) {
-  const numbersArray = window.crypto.getRandomValues(new Uint32Array(10));
-  const numbers = numbersArray[0];
-  console.log(numbersArray);
-  return `${numbers}`;
+function generatePassword(options, max) {
+  const intMax = 2 ** 32 - 1;
+  const numbersArray = window.crypto.getRandomValues(
+    new Uint32Array(options.passwordLength)
+  );
+  const passwordIndex = numbersArray.map((i) => {
+    return Math.floor((max * i) / (intMax + 1));
+  });
+  // const numbers = numbersArray[0];
+  console.log(passwordIndex);
+  // return `${numbers}`;
 }
 
 function PasswordDisplay(props) {
-  return props.password;
+  const password = props.password || "not set";
+  // return <div>{props.password}</div>;
+  return password;
 }
 
 function App() {
@@ -44,7 +52,7 @@ function App() {
       newOptions
     );
     setOptions(newOptions);
-    const newPassword = generatePassword(newOptions);
+    const newPassword = generatePassword(newOptions, 26);
     setPassword(newPassword);
   }
 

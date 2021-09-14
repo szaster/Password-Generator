@@ -10,6 +10,9 @@ function RegeneratePasswordButton(props) {
   const numbers = "1234567890";
   const special = "!@#$%^&*()_+=-;':/?.,|\\<>";
 
+  const emptyString = "";
+  let password = emptyString;
+
   const handleClick = (event) => {
     props.handleNewOptions({
       ...options,
@@ -18,7 +21,7 @@ function RegeneratePasswordButton(props) {
 
   return (
     <Button style={{ background: "pink", margin: 20 }} onClick={handleClick}>
-      Generate New Password
+      Regenerate Password
     </Button>
   );
 }
