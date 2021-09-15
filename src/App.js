@@ -41,6 +41,62 @@ function PasswordDisplay(props) {
   return password;
 }
 
+function selectRandomIndexes(options){
+  const positions =   
+}
+
+
+function getCharacters(options) {
+  // password character set
+  const lowerAlphas = "qwertyuiopasdfghjklzxcvbnm";
+  const upperAlphas = lowerAlphas.toUpperCase();
+  const numbers = "0123456789";
+  const special = "!@#$%^&*()_+=-;':/?.,|\\<>";
+
+  const allCharacters = [];
+  if (options.lowercase === true) {
+    allCharacters.push(lowerAlphas);
+  }
+  if (options.uppercase === true) {
+    allCharacters.push(upperAlphas);
+  }
+  if (options.specialCharacters === true) {
+    allCharacters.push(special);
+  }
+  if (options.numbers === true) {
+    allCharacters.push(numbers);
+  }
+
+  const maxChar = allCharacters.join("").length;
+  const charactersPool = allCharacters.join("");
+
+  // ???
+  const choices = generatePasswordIndexes(maxChar);
+  // ????
+
+  const passwordCharacters = [];
+  // choices.map((i) => passwordCharacters.push);
+  // console.log("number choices:", choices);
+  console.log("total char", maxChar);
+  console.log("choices???????? why undefined. Does  line 67 works?", choices);
+  console.log("AllCharacters", charactersPool);
+
+  return charactersPool;
+}
+
+//////////////////////////////////////////
+function generatePassword(options) {
+  getCharacters(options);
+
+
+
+  if (charactersPool !== null) {
+    password = newPassword();
+  } else alert("At least one of the checkboxes should be checked!");
+}
+//////////////////////////////////
+
+
 function App() {
   const [options, setOptions] = React.useState(initialOptions);
   const [password, setPassword] = React.useState(initialPassword);
@@ -50,8 +106,10 @@ function App() {
       "handleNewOptions function has been called and new options are:",
       newOptions
     );
+    const charactersPool = getCharacters(newOptions);
+    console.log("Characters to take password from", charactersPool);
     setOptions(newOptions);
-    const newPassword = generatePasswordIndexes(newOptions, 26);
+    const newPassword = generatePasswordIndexes(newOptions, 10);
     setPassword(newPassword);
   }
 
@@ -62,7 +120,7 @@ function App() {
       {/* </Hidden> */}
       <Container maxWidth="sm" m={10}>
         <Paper elevation={10} outlined square m={20}>
-          generatePassword()
+          generatePasswordIndexes()
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>
