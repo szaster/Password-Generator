@@ -20,8 +20,7 @@ function Options(props) {
   // todo: after this project is finished, experiment with value of options: will this component rerender if options are changed?
 
   /**
-   * Takes new password length and sets options to the old value, except for the password length, which is updated.
-   * @param {} newLength
+   Takes new password length and sets options to the old value, except for the password length, which is updated.
    */
   const setPasswordLength = (newLength) => {
     const newOptions = { ...props.options, passwordLength: newLength };
@@ -43,7 +42,7 @@ function Options(props) {
             </Box>
           </Typography>
         </Grid>
-        <Grid style={{ paddingTop: 60 }} item xs={12}>
+        <Grid style={{ paddingBottom: 0 }} item xs={12}>
           <CharactersNumber
             passwordLength={options.passwordLength}
             setPasswordLength={setPasswordLength}

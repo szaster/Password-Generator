@@ -9,6 +9,7 @@ import {
   useMediaQuery,
   Hidden,
   Paper,
+  Box,
   Container,
   Typography,
 } from "@material-ui/core";
@@ -42,8 +43,24 @@ function generatePasswordIndexes(passwordLength, max) {
 
 function PasswordDisplay(props) {
   const password = props.password || "not set";
-  // return <div>{props.password}</div>;
-  return password;
+
+  return (
+    <div>
+      <Paper>
+        <Typography component="div" variant="subtitle1" gutterBottom>
+          <Box
+            textAlign="center"
+            fontWeight="fontWeightLarge"
+            m={5}
+            paddingTop={5}
+            paddingBottom={5}
+          >
+            {password}
+          </Box>
+        </Typography>
+      </Paper>
+    </div>
+  );
 }
 
 function selectRandomIndexes(options) {
@@ -74,21 +91,9 @@ function getCharacters(options) {
   const maxChar = allCharacters.join("").length;
   const charactersPool = allCharacters.join("");
 
-  // ???
-  // const choices = generatePasswordIndexes(maxChar);
-  // ????
-
-  // const passwordCharacters = [];
-  // choices.map((i) => passwordCharacters.push);
-  // console.log("number choices:", choices);
-  // console.log("total char", maxChar);
-  // console.log("choices???????? why undefined. Does  line 67 works?", choices);
-  // console.log("AllCharacters", charactersPool);
-
   return charactersPool;
 }
 
-//////////////////////////////////////////
 function generatePassword(options) {
   const charactersPool = getCharacters(options);
   console.log("Characters pool", charactersPool[31]);
@@ -104,7 +109,6 @@ function generatePassword(options) {
   return password;
   // const password = newPassword();
 }
-//////////////////////////////////
 
 function App() {
   const [options, setOptions] = React.useState(initialOptions);
@@ -115,24 +119,25 @@ function App() {
       "handleNewOptions function has been called and new options are:",
       newOptions
     );
-    // const charactersPool = getCharacters(newOptions);
-    // console.log("Characters to take password from", charactersPool);
+
     setOptions(newOptions);
     const newPassword = generatePassword(newOptions);
-
-    // const newPassword = generatePasswordIndexes(newOptions, 10);
-    console.log("Generated a new password", newPassword);
     setPassword(newPassword);
   }
 
   return (
     <div className="App">
-      {/* <Hidden only="xs"> */}
       <Header />
-      {/* </Hidden> */}
       <Container maxWidth="sm" m={10}>
-        <Paper elevation={10} outlined square m={20}>
-          generatePasswordIndexes()
+        <Paper
+          elevation={10}
+          outlined
+          square
+          m={20}
+          style={{ background: "lightgray" }}
+        >
+          {/* generatePasswordIndexes() */}
+          {/* <PasswordDisplay style={{ padding: 190 }} password={password} /> */}
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>
