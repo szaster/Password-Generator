@@ -23,16 +23,21 @@ const initialOptions = {
 
 const initialPassword = generatePasswordIndexes(initialOptions);
 
-function generatePasswordIndexes(options, max) {
+function generatePasswordIndexes(passwordLength, max) {
   const intMax = 2 ** 32 - 1;
   const numbersArray = window.crypto.getRandomValues(
-    new Uint32Array(options.passwordLength)
+    new Uint32Array(passwordLength)
   );
-  const passwordIndex = numbersArray.map((i) => {
-    return Math.floor((max * i) / (intMax + 1));
-  });
 
-  console.log(passwordIndex);
+  console.log("passwordLength", passwordLength);
+  console.log("numbersArray", numbersArray);
+
+  const passwordIndexes = numbersArray.map((i) =>
+    Math.floor((max * i) / (intMax + 1))
+  );
+
+  console.log("Generated the following indexes", passwordIndexes);
+  return passwordIndexes;
 }
 
 function PasswordDisplay(props) {
@@ -41,10 +46,9 @@ function PasswordDisplay(props) {
   return password;
 }
 
-function selectRandomIndexes(options){
-  const positions =   
+function selectRandomIndexes(options) {
+  // const positions =
 }
-
 
 function getCharacters(options) {
   // password character set
@@ -71,31 +75,36 @@ function getCharacters(options) {
   const charactersPool = allCharacters.join("");
 
   // ???
-  const choices = generatePasswordIndexes(maxChar);
+  // const choices = generatePasswordIndexes(maxChar);
   // ????
 
-  const passwordCharacters = [];
+  // const passwordCharacters = [];
   // choices.map((i) => passwordCharacters.push);
   // console.log("number choices:", choices);
-  console.log("total char", maxChar);
-  console.log("choices???????? why undefined. Does  line 67 works?", choices);
-  console.log("AllCharacters", charactersPool);
+  // console.log("total char", maxChar);
+  // console.log("choices???????? why undefined. Does  line 67 works?", choices);
+  // console.log("AllCharacters", charactersPool);
 
   return charactersPool;
 }
 
 //////////////////////////////////////////
 function generatePassword(options) {
-  getCharacters(options);
-
-
-
-  if (charactersPool !== null) {
-    password = newPassword();
-  } else alert("At least one of the checkboxes should be checked!");
+  const charactersPool = getCharacters(options);
+  console.log("Characters pool", charactersPool[31]);
+  console.log("Characters pool", charactersPool);
+  const indexes = generatePasswordIndexes(
+    options.passwordLength,
+    charactersPool.length
+  );
+  const chars = [];
+  indexes.forEach((idx) => chars.push(charactersPool[idx]));
+  console.log(chars);
+  const password = chars.join("");
+  return password;
+  // const password = newPassword();
 }
 //////////////////////////////////
-
 
 function App() {
   const [options, setOptions] = React.useState(initialOptions);
@@ -106,10 +115,13 @@ function App() {
       "handleNewOptions function has been called and new options are:",
       newOptions
     );
-    const charactersPool = getCharacters(newOptions);
-    console.log("Characters to take password from", charactersPool);
+    // const charactersPool = getCharacters(newOptions);
+    // console.log("Characters to take password from", charactersPool);
     setOptions(newOptions);
-    const newPassword = generatePasswordIndexes(newOptions, 10);
+    const newPassword = generatePassword(newOptions);
+
+    // const newPassword = generatePasswordIndexes(newOptions, 10);
+    console.log("Generated a new password", newPassword);
     setPassword(newPassword);
   }
 
