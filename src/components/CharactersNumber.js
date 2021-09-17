@@ -14,8 +14,11 @@ import { Grid, Input, Slider, Box, Typography } from "@material-ui/core";
 // });
 
 const useStyles = makeStyles((theme) => ({
-  container: { display: "flex" },
-  details: { display: "flex", flexDirection: "column", padding: "0px 15px" },
+  container: { display: "flex", width: "100%" },
+  details: { display: "flex", flexDirection: "row", padding: "0px 0px" },
+  content: {
+    flex: "1 0 auto",
+  },
 }));
 
 function CharactersNumber(props) {
@@ -45,9 +48,9 @@ function CharactersNumber(props) {
   };
 
   return (
-    <div className={classes.container}>
-      <Grid container spacing={2}>
-        <Grid item style={{ padding: 20 }}>
+    <div>
+      <Grid className={classes.details}>
+        <Grid item>
           <Box textAlign="center" fontWeight="fontWeightMedium">
             Password length
           </Box>
