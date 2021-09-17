@@ -3,6 +3,7 @@ import "./App.css";
 import Options from "./components/Options";
 import Header from "./components/Header";
 import RegeneratePasswordButton from "./components/RegenerateButton";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
   Button,
@@ -13,6 +14,17 @@ import {
   Container,
   Typography,
 } from "@material-ui/core";
+
+// const useStyles = makeStyles({
+//   root: {
+//     // width: 450,
+//     flexGrow: 1,
+//     overflow: "hidden",
+//   },
+//   input: {
+//     width: 50,
+//   },
+// });
 
 const initialOptions = {
   lowercase: true,
@@ -46,14 +58,15 @@ function PasswordDisplay(props) {
 
   return (
     <div>
-      <Paper>
+      <Paper style={{ background: "#b2dfdb" }}>
         <Typography component="div" variant="subtitle1" gutterBottom>
           <Box
             textAlign="center"
             fontWeight="fontWeightLarge"
+            fontSize={20}
             m={5}
-            paddingTop={5}
-            paddingBottom={5}
+            paddingTop={3}
+            paddingBottom={3}
           >
             {password}
           </Box>
@@ -61,10 +74,6 @@ function PasswordDisplay(props) {
       </Paper>
     </div>
   );
-}
-
-function selectRandomIndexes(options) {
-  // const positions =
 }
 
 function getCharacters(options) {
@@ -111,6 +120,8 @@ function generatePassword(options) {
 }
 
 function App() {
+  // const classes = useStyles();
+
   const [options, setOptions] = React.useState(initialOptions);
   const [password, setPassword] = React.useState(initialPassword);
 
@@ -134,10 +145,8 @@ function App() {
           outlined
           square
           m={20}
-          style={{ background: "lightgray" }}
+          style={{ background: "#eceff1" }}
         >
-          {/* generatePasswordIndexes() */}
-          {/* <PasswordDisplay style={{ padding: 190 }} password={password} /> */}
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay password={password} />
         </Paper>

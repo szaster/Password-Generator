@@ -1,5 +1,13 @@
 import { createTheme } from "@material-ui/core/styles";
-import { pink, teal, lime, purple } from "@material-ui/core/colors";
+import {
+  pink,
+  yellow,
+  red,
+  teal,
+  lime,
+  purple,
+  green,
+} from "@material-ui/core/colors";
 
 const theme = createTheme({
   palette: {

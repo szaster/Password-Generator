@@ -34,8 +34,10 @@ function Options(props) {
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               borderBottom={1}
+              paddingBottom={2}
               textAlign="center"
               fontWeight="fontWeightMedium"
+              fontSize={23}
               m={1}
             >
               Please select options for generating password
@@ -56,6 +58,8 @@ function Options(props) {
                 checked={options.lowercase}
                 onChange={handleChange}
                 name="lowercase"
+                color="primary"
+                position="fixed"
               />
             }
             label="lowercase letters"
@@ -68,6 +72,8 @@ function Options(props) {
                 checked={options.uppercase}
                 onChange={handleChange}
                 name="uppercase"
+                color="primary"
+                position="fixed"
               />
             }
             label="uppercase letters"
@@ -80,6 +86,8 @@ function Options(props) {
                 checked={options.specialCharacters}
                 onChange={handleChange}
                 name="specialCharacters"
+                color="primary"
+                position="fixed"
               />
             }
             label="special characters"
@@ -92,6 +100,8 @@ function Options(props) {
                 checked={options.numbers}
                 onChange={handleChange}
                 name="numbers"
+                color="primary"
+                position="fixed"
               />
             }
             label="numbers"

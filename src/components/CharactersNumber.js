@@ -2,22 +2,24 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Input, Slider, Box, Typography } from "@material-ui/core";
 
-// TODO! What is root: {r....}
-const useStyles = makeStyles({
-  root: {
-    // width: 450,
-    flexGrow: 1,
-    overflow: "hidden",
-  },
-  input: {
-    width: 50,
-  },
-});
+// const useStyles = makeStyles({
+//   root: {
+//     width: 450,
+//     flexGrow: 1,
+//     // overflow: "hidden",
+//   },
+//   input: {
+//     width: 50,
+//   },
+// });
 
-// const props = { passwordLength: options.passwordLength, setPasswordLength: setPasswordLength }
+const useStyles = makeStyles((theme) => ({
+  container: { display: "flex" },
+  details: { display: "flex", flexDirection: "column", padding: "0px 15px" },
+}));
+
 function CharactersNumber(props) {
   const classes = useStyles();
-  // const [value, setValue] = React.useState(20);
 
   const handleInputChange = (event) => {
     console.log(event);
@@ -34,8 +36,8 @@ function CharactersNumber(props) {
     if (props.passwordLength < 0) {
       props.setPasswordLength(0);
     } else if (props.passwordLength > 100) {
-      alert("Password length must be less than 100 characters");
-      props.setPasswordLength(100);
+      alert("Password length must be less than 36 characters");
+      props.setPasswordLength(36);
     } else if (props.passwordLength < 10) {
       alert("Password length must be at least 10 characters");
       props.setPasswordLength(10);
@@ -43,8 +45,8 @@ function CharactersNumber(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={2} alignItems="center">
+    <div className={classes.container}>
+      <Grid container spacing={2}>
         <Grid item style={{ padding: 20 }}>
           <Box textAlign="center" fontWeight="fontWeightMedium">
             Password length
@@ -60,13 +62,17 @@ function CharactersNumber(props) {
             inputProps={{
               step: 5,
               min: 10,
-              max: 100,
+              max: 36,
               type: "number",
             }}
           />
         </Grid>
         <Grid item xs={12} sm>
           <Slider
+            type="range"
+            min={10}
+            max={36}
+            step={1}
             value={
               typeof props.passwordLength === "number"
                 ? props.passwordLength
