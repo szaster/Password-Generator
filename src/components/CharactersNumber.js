@@ -2,23 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Input, Slider, Box, Typography } from "@material-ui/core";
 
-// const useStyles = makeStyles({
-//   root: {
-//     width: 450,
-//     flexGrow: 1,
-//     // overflow: "hidden",
-//   },
-//   input: {
-//     width: 50,
-//   },
-// });
-
 const useStyles = makeStyles((theme) => ({
   container: { display: "flex", width: "100%" },
   details: { display: "flex", flexDirection: "row", padding: "0px 0px" },
-  content: {
-    flex: "1 0 auto",
-  },
 }));
 
 function CharactersNumber(props) {
@@ -51,9 +37,11 @@ function CharactersNumber(props) {
     <div>
       <Grid className={classes.details}>
         <Grid item>
-          <Box textAlign="center" fontWeight="fontWeightMedium">
-            Password length
-          </Box>
+          <Typography component="div" variant="subtitle1">
+            <Box textAlign="center" fontWeight="fontWeightMedium">
+              Password length
+            </Box>
+          </Typography>
         </Grid>
         <Grid item xs={12} sm>
           <Input

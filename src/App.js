@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
+import { makeStyles } from "@material-ui/core/styles";
 import Options from "./components/Options";
 import Header from "./components/Header";
 import RegeneratePasswordButton from "./components/RegenerateButton";
-import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Box, Container, Typography } from "@material-ui/core";
 
 const initialOptions = {
@@ -14,7 +14,7 @@ const initialOptions = {
   passwordLength: 10,
 };
 
-const initialPassword = generatePasswordIndexes(initialOptions);
+const initialPassword = generatePassword(initialOptions);
 
 function generatePasswordIndexes(passwordLength, max) {
   const intMax = 2 ** 32 - 1;
@@ -22,20 +22,14 @@ function generatePasswordIndexes(passwordLength, max) {
     new Uint32Array(passwordLength)
   );
 
-  console.log("passwordLength", passwordLength);
-  console.log("numbersArray", numbersArray);
-
   const passwordIndexes = numbersArray.map((i) =>
     Math.floor((max * i) / (intMax + 1))
   );
-
-  console.log("Generated the following indexes", passwordIndexes);
   return passwordIndexes;
 }
 
 function PasswordDisplay(props) {
   const password = props.password || "not set";
-
   return (
     <div>
       <Paper style={{ background: "#b2dfdb" }}>
@@ -43,12 +37,13 @@ function PasswordDisplay(props) {
           <Box
             textAlign="center"
             fontWeight="fontWeightLarge"
-            fontSize={20}
-            m={5}
+            fontSize={30}
+            m={3}
             paddingTop={3}
             paddingBottom={3}
           >
             {password}
+            {/* <Button className={classes.left}>Copy</Button> */}
           </Box>
         </Typography>
       </Paper>
@@ -77,7 +72,6 @@ function getCharacters(options) {
     allCharacters.push(numbers);
   }
 
-  const maxChar = allCharacters.join("").length;
   const charactersPool = allCharacters.join("");
 
   return charactersPool;
@@ -85,8 +79,6 @@ function getCharacters(options) {
 
 function generatePassword(options) {
   const charactersPool = getCharacters(options);
-  console.log("Characters pool", charactersPool[31]);
-  console.log("Characters pool", charactersPool);
   const indexes = generatePasswordIndexes(
     options.passwordLength,
     charactersPool.length
@@ -96,7 +88,6 @@ function generatePassword(options) {
   console.log(chars);
   const password = chars.join("");
   return password;
-  // const password = newPassword();
 }
 
 function App() {
@@ -121,7 +112,10 @@ function App() {
           style={{ background: "#eceff1" }}
         >
           <Options handleNewOptions={handleNewOptions} options={options} />
-          <PasswordDisplay password={password} />
+          <PasswordDisplay
+            handleNewOptions={handleNewOptions}
+            password={password}
+          />
         </Paper>
         <RegeneratePasswordButton
           handleNewOptions={handleNewOptions}
