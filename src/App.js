@@ -4,27 +4,7 @@ import Options from "./components/Options";
 import Header from "./components/Header";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Grid,
-  Button,
-  useMediaQuery,
-  Hidden,
-  Paper,
-  Box,
-  Container,
-  Typography,
-} from "@material-ui/core";
-
-// const useStyles = makeStyles({
-//   root: {
-//     // width: 450,
-//     flexGrow: 1,
-//     overflow: "hidden",
-//   },
-//   input: {
-//     width: 50,
-//   },
-// });
+import { Paper, Box, Container, Typography } from "@material-ui/core";
 
 const initialOptions = {
   lowercase: true,
@@ -81,7 +61,7 @@ function getCharacters(options) {
   const lowerAlphas = "qwertyuiopasdfghjklzxcvbnm";
   const upperAlphas = lowerAlphas.toUpperCase();
   const numbers = "0123456789";
-  const special = "!@#$%^&*()_+=-;':/?.,|\\<>";
+  const special = "!@#$%^&*()_+=-;:/?";
 
   const allCharacters = [];
   if (options.lowercase === true) {
@@ -120,17 +100,10 @@ function generatePassword(options) {
 }
 
 function App() {
-  // const classes = useStyles();
-
   const [options, setOptions] = React.useState(initialOptions);
   const [password, setPassword] = React.useState(initialPassword);
 
   function handleNewOptions(newOptions) {
-    console.log(
-      "handleNewOptions function has been called and new options are:",
-      newOptions
-    );
-
     setOptions(newOptions);
     const newPassword = generatePassword(newOptions);
     setPassword(newPassword);
