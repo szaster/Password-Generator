@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex", width: "100%" },
   title: {
     marginLeft: theme.spacing(2),
   },
@@ -25,21 +24,17 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
-      <AppBar color="primary" position="fixed">
-        <Toolbar>
-          <LockIcon />
-          <div className={classes.layout}>
-            <Typography className={classes.title} variant="h6" component="h1">
-              Random Password Generator
-            </Typography>
-            <Button className={classes.about} color="inherit">
-              About
-            </Button>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar color="primary" position="fixed">
+      <Toolbar>
+        <LockIcon />
+        <div className={classes.layout}>
+          <Typography className={classes.title} variant="h6" component="h1">
+            Random Password Generator
+          </Typography>
+          <Button color="inherit">About</Button>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 
