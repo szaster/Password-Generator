@@ -13,7 +13,6 @@ const initialOptions = {
   numbers: true,
   passwordLength: 10,
 };
-
 const initialPassword = generatePassword(initialOptions);
 
 function generatePasswordIndexes(passwordLength, max) {
