@@ -5,6 +5,7 @@ import Options from "./components/Options";
 import Header from "./components/Header";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@material-ui/core";
+import { Switch, Route } from "react-router-dom";
 
 const initialOptions = {
   lowercase: true,
@@ -89,7 +90,7 @@ function generatePassword(options) {
   return password;
 }
 
-function App() {
+function Home() {
   const [options, setOptions] = React.useState(initialOptions);
   const [password, setPassword] = React.useState(initialPassword);
 
@@ -101,7 +102,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <Container maxWidth="sm" m={10}>
         <Paper
           elevation={10}
@@ -122,6 +122,26 @@ function App() {
         />
       </Container>
     </div>
+  );
+}
+
+function About() {
+  return <div>About</div>;
+}
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </>
   );
 }
 

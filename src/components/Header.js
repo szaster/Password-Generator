@@ -8,6 +8,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header() {
+  // const location = useLocation();
+
   const classes = useStyles();
 
   return (
@@ -31,7 +34,7 @@ function Header() {
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <Button color="inherit">About</Button>
+          <Link to="about">About</Link>
         </div>
       </Toolbar>
     </AppBar>
