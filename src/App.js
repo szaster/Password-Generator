@@ -3,6 +3,7 @@ import "./App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Options from "./components/Options";
 import Header from "./components/Header";
+import About from "./components/About";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@material-ui/core";
 import { Switch, Route } from "react-router-dom";
@@ -125,9 +126,9 @@ function Home() {
   );
 }
 
-function About() {
-  return <div>About</div>;
-}
+// function About() {
+//   return <div>About</div>;
+// }
 
 function App() {
   return (

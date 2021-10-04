@@ -34,7 +34,9 @@ function Header() {
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <Link to="about">About</Link>
+          <Link to="about" style={{ color: "white", fontWeight: "bold" }}>
+            About
+          </Link>
         </div>
       </Toolbar>
     </AppBar>
