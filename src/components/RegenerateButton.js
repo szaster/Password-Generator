@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Paper } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 function RegeneratePasswordButton(props) {
   const options = props.options;
@@ -13,7 +13,9 @@ function RegeneratePasswordButton(props) {
   return (
     <div>
       <Button style={{ background: "pink", margin: 20 }} onClick={handleClick}>
-        Regenerate Password
+        <Typography component="div" variant="Title" gutterBottom>
+          Regenerate Password
+        </Typography>
       </Button>
     </div>
   );
