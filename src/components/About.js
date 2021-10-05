@@ -38,13 +38,28 @@ function About() {
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               paddingBottom={2}
-              textAlign="center"
-              fontWeight="fontWeightMedium"
-              fontSize={30}
-              m={1}
+              paddingTop={2}
+              paddingLeft={2}
+              textAlign="left"
+              //   fontWeight="fontWeight"
+              fontSize={16}
+              m={7}
             >
-              About egirwgperk gpok r gop w select options for generating
-              passwordbh rhb etgertg
+              <p>
+                This application generates random passwords using
+                Crypto.getRandomValues() method, which allows to create
+                cryptographically strong random values with a high entropy. As a
+                result, passwords generated with this application are strong and
+                secure. Manipulating the length and options for the password
+                allows to password customization.{" "}
+              </p>
+              Read more on password strength{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Password_strength"
+                target="_blank"
+              >
+                here
+              </a>
             </Box>
           </Typography>
         </Paper>
