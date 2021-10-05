@@ -1,9 +1,8 @@
 import React from "react";
 import "./App.css";
-import { makeStyles } from "@material-ui/core/styles";
 import Options from "./components/Options";
 import Header from "./components/Header";
-import About from "./components/About";
+import About from "./components/AboutPage";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@material-ui/core";
 import { Switch, Route } from "react-router-dom";

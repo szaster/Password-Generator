@@ -1,16 +1,15 @@
-import React from "react";
-import LockIcon from "@material-ui/icons/Lock";
+// import React from "react";
+
 import {
-  AppBar,
   Typography,
   makeStyles,
-  Toolbar,
-  Button,
   Box,
   Paper,
   Container,
+  Avatar,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Card, Image, Icon, Rating, Transition, Menu } from "semantic-ui-react";
+// import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: { display: "flex", padding: "0px 70px" },
@@ -41,7 +40,7 @@ function About() {
               paddingTop={2}
               paddingLeft={2}
               textAlign="left"
-              //   fontWeight="fontWeight"
+              // fontWeight="medium"
               fontSize={16}
               m={7}
             >
@@ -60,6 +59,42 @@ function About() {
               >
                 here
               </a>
+            </Box>
+          </Typography>
+        </Paper>
+
+        <Paper
+          elevation={1}
+          outlined
+          square
+          m={20}
+          style={{ background: "#eceff1" }}
+        >
+          <Typography component="div" variant="subtitle2" gutterBottom>
+            <Box
+              paddingBottom={2}
+              paddingTop={2}
+              paddingLeft={2}
+              textAlign="left"
+              // fontWeight="medium"
+              fontSize={16}
+              m={7}
+            >
+              Svitlana Zaster
+              <Avatar
+                sx={{ width: 56, height: 56 }}
+                alt="Svitlana Zaster"
+                src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
+              />
+              Full Stack Web Developer
+              <Typography>
+                View More:{" "}
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
+                ></a>
+                <Icon name="linkedin" color="blue" size="big" />
+              </Typography>
             </Box>
           </Typography>
         </Paper>
