@@ -8,6 +8,7 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
+import { Stack } from "@mui/material/Stack";
 import { Card, Image, Icon, Rating, Transition, Menu } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
@@ -71,31 +72,45 @@ function About() {
           style={{ background: "#eceff1" }}
         >
           <Typography component="div" variant="subtitle2" gutterBottom>
-            <Box
-              paddingBottom={2}
-              paddingTop={2}
-              paddingLeft={2}
-              textAlign="left"
-              // fontWeight="medium"
-              fontSize={16}
-              m={7}
-            >
-              Svitlana Zaster
-              <Avatar
-                sx={{ width: 56, height: 56 }}
-                alt="Svitlana Zaster"
-                src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
-              />
-              Full Stack Web Developer
-              <Typography>
-                View More:{" "}
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
-                ></a>
-                <Icon name="linkedin" color="blue" size="big" />
-              </Typography>
-            </Box>
+            <Stack direction="row" spacing={2}>
+              <Box
+                paddingBottom={2}
+                paddingTop={2}
+                paddingLeft={2}
+                textAlign="left"
+                // fontWeight="medium"
+                fontSize={16}
+                m={7}
+              >
+                Svitlana Zaster
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  alt="Svitlana Zaster"
+                  src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
+                />
+                Full Stack Web Developer
+                <Typography>
+                  Connect with me
+                  <Avatar
+                    variant="square"
+                    href="https://user-images.githubusercontent.com/41549193/105805024-c2891a00-5f66-11eb-9488-528f69155a73.jpeg"
+                    alt="linkedin"
+                  />
+                  <Avatar
+                    variant="square"
+                    href="https://user-images.githubusercontent.com/41549193/105803374-f9f5c780-5f62-11eb-9db0-904a417b0ee9.gif"
+                    alt="github"
+                  />
+                  [1]: https://www.linkedin.com/in/svitlana-zaster-77a9a06b/
+                  [2]: https://twitter.com/szaster
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
+                  ></a>
+                  <Icon name="linkedin" color="blue" size="big" />
+                </Typography>
+              </Box>
+            </Stack>
           </Typography>
         </Paper>
       </Container>
