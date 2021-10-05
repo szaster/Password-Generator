@@ -131,7 +131,7 @@ function Home() {
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
       <Switch>
         <Route path="/about">
@@ -141,7 +141,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </>
+    </div>
   );
 }
 

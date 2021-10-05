@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 
 import {
   Typography,
@@ -8,7 +8,8 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
-import { Stack } from "@mui/material/Stack";
+
+import Stack from "@mui/material/Stack";
 import { Card, Image, Icon, Rating, Transition, Menu } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
