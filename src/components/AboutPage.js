@@ -1,5 +1,6 @@
 import React from "react";
-import "../theme";
+import { useLocation } from "react-router-dom";
+// import "../theme";
 
 import {
   Typography,
@@ -45,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
 
 function About() {
   const classes = useStyles();
+
+  const location = useLocation();
+  console.log(location);
   return (
     <div className={classes.root}>
       <Container style={{ paddingTop: 90 }} maxWidth="sm" m={10}>
@@ -58,28 +62,42 @@ function About() {
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               paddingBottom={2}
-              paddingTop={2}
-              paddingLeft={2}
+              paddingTop={1}
+              paddingLeft={1}
               textAlign="left"
               // fontWeight="medium"
               fontSize={16}
               m={7}
             >
-              <p color="secondary">
+              <Typography>
+                <Box
+                  textAlign="center"
+                  fontWeight="fontWeightLarge"
+                  fontSize={30}
+                  m={1}
+                  paddingTop={0}
+                  paddingBottom={0}
+                >
+                  About this application
+                </Box>
                 This application generates random passwords using
                 Crypto.getRandomValues() method, which allows to create
                 cryptographically strong random values with a high entropy. As a
                 result, passwords generated with this application are strong and
                 secure. Manipulating the length and options for the password
-                allows to password customization.{" "}
+                allows to password customization. The app does not store the
+                passwords neither locally, nor remotely. Please save your newly
+                generated passwords on your machine.{" "}
+              </Typography>
+              <p>
+                Read more on password strength{" "}
+                <a
+                  href="https://en.wikipedia.org/wiki/Password_strength"
+                  target="_blank"
+                >
+                  here
+                </a>
               </p>
-              Read more on password strength{" "}
-              <a
-                href="https://en.wikipedia.org/wiki/Password_strength"
-                target="_blank"
-              >
-                here
-              </a>
             </Box>
           </Typography>
         </Paper>
@@ -96,7 +114,7 @@ function About() {
               paddingBottom={3}
               paddingTop={3}
               paddingLeft={1}
-              // textAlign="center"
+              textAlign="left"
               fontSize={19}
               display="flex"
               flexDirection="column"
@@ -113,18 +131,19 @@ function About() {
               <Typography variant="subtitle3">
                 Svitlana Zaster | Full Stack Web Developer
               </Typography>
-              <Box
-                paddingBottom={1}
-                paddingTop={1}
-                paddingLeft={1}
-                textAlign="center"
-                fontSize={19}
-                display="flex"
-                flexDirection="row"
-                padding={1}
-                m={1}
-              >
-                <Typography>
+
+              <Typography>
+                <Box
+                  paddingBottom={1}
+                  paddingTop={1}
+                  paddingLeft={1}
+                  textAlign="left"
+                  fontSize={20}
+                  display="flex"
+                  flexDirection="row"
+                  padding={1}
+                  m={1}
+                >
                   Connect with me:
                   <LinkedInIcon
                     onClick={(event) =>
@@ -141,8 +160,8 @@ function About() {
                     className={classes.clickableIconGh}
                     fontSize="large"
                   />{" "}
-                </Typography>
-              </Box>
+                </Box>
+              </Typography>
             </Box>
           </Typography>
         </Paper>
