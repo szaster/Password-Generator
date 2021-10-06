@@ -125,10 +125,6 @@ function Home() {
   );
 }
 
-// function About() {
-//   return <div>About</div>;
-// }
-
 function App() {
   return (
     <div>

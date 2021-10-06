@@ -6,14 +6,14 @@ import {
   deepPurple,
   amber,
   purple,
+  yellow,
 } from "@material-ui/core/colors";
 
 const theme = createTheme({
   palette: {
     type: "light",
     primary: purple,
-    contrastText: amber[500],
-    secondary: teal,
+    secondary: yellow,
   },
 });
 

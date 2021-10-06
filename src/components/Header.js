@@ -34,7 +34,7 @@ function Header() {
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <Link to="about" style={{ color: "black", fontWeight: "bold" }}>
+          <Link to="about" style={{ color: "white", fontWeight: "bold" }}>
             About
           </Link>
         </div>

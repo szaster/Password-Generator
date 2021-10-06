@@ -1,5 +1,6 @@
 import React from "react";
 import "../theme";
+
 import {
   Typography,
   makeStyles,
@@ -8,7 +9,8 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Stack from "@mui/material/Stack";
 import { Card, Image, Icon, Rating, Transition, Menu } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
@@ -66,11 +68,11 @@ function About() {
         </Paper>
 
         <Paper
-          elevation={1}
+          elevation={10}
           outlined
           square
-          m={20}
-          style={{ background: "#eceff1" }}
+          m={2}
+          style={{ background: "#DCEDC8" }}
         >
           <Typography component="div" variant="subtitle2" gutterBottom>
             <Stack direction="row" spacing={2}>
@@ -91,24 +93,20 @@ function About() {
                 />
                 Full Stack Web Developer
                 <Typography>
-                  Connect with me
-                  <Avatar
-                    variant="square"
-                    href="https://user-images.githubusercontent.com/41549193/105805024-c2891a00-5f66-11eb-9488-528f69155a73.jpeg"
-                    alt="linkedin"
-                  />
-                  <Avatar
-                    variant="square"
-                    href="https://user-images.githubusercontent.com/41549193/105803374-f9f5c780-5f62-11eb-9db0-904a417b0ee9.gif"
-                    alt="github"
-                  />
-                  [1]: https://www.linkedin.com/in/svitlana-zaster-77a9a06b/
-                  [2]: https://twitter.com/szaster
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
-                  ></a>
-                  <Icon name="linkedin" color="blue" size="big" />
+                  Connect with me:
+                  <Box>
+                    <LinkedInIcon fontSize="large" />{" "}
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
+                    >
+                      LinkedIn
+                    </a>
+                  </Box>
+                  <Typography>
+                    <GitHubIcon fontSize="large" />{" "}
+                    <a href="https://github.com/szaster">Github </a>
+                  </Typography>
                 </Typography>
               </Box>
             </Stack>
