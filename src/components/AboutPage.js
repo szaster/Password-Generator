@@ -8,6 +8,7 @@ import {
   Paper,
   Container,
   Avatar,
+  Grid,
 } from "@material-ui/core";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -22,6 +23,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "baseline",
   },
   left: { marginRight: "auto" }, //aligns Flexboxes to the left!
+  positionAvatar: {
+    display: "flex",
+  },
+
+  clickableIconIn: {
+    color: "blue",
+    "&:hover": {
+      color: "yellow",
+    },
+  },
+  clickableIconGh: {
+    color: "black",
+    "&:hover": {
+      color: "yellow",
+    },
+  },
 }));
 
 // const location = useLocation();
@@ -75,41 +92,58 @@ function About() {
           style={{ background: "#DCEDC8" }}
         >
           <Typography component="div" variant="subtitle2" gutterBottom>
-            <Stack direction="row" spacing={2}>
+            <Box
+              paddingBottom={3}
+              paddingTop={3}
+              paddingLeft={1}
+              // textAlign="center"
+              fontSize={19}
+              display="flex"
+              flexDirection="column"
+              padding={1}
+              m={7}
+            >
+              <Avatar
+                style={{ height: 170, width: 170 }}
+                // display="flex"
+                className={classes.positionAvatar}
+                alt="Svitlana Zaster"
+                src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
+              />
+              <Typography variant="subtitle3">
+                Svitlana Zaster | Full Stack Web Developer
+              </Typography>
               <Box
-                paddingBottom={2}
-                paddingTop={2}
-                paddingLeft={2}
-                textAlign="left"
-                // fontWeight="medium"
-                fontSize={16}
-                m={7}
+                paddingBottom={1}
+                paddingTop={1}
+                paddingLeft={1}
+                textAlign="center"
+                fontSize={19}
+                display="flex"
+                flexDirection="row"
+                padding={1}
+                m={1}
               >
-                Svitlana Zaster
-                <Avatar
-                  sx={{ width: 56, height: 56 }}
-                  alt="Svitlana Zaster"
-                  src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
-                />
-                Full Stack Web Developer
                 <Typography>
                   Connect with me:
-                  <Box>
-                    <LinkedInIcon fontSize="large" />{" "}
-                    <a
-                      target="_blank"
-                      href="https://www.linkedin.com/in/svitlana-zaster-77a9a06b/"
-                    >
-                      LinkedIn
-                    </a>
-                  </Box>
-                  <Typography>
-                    <GitHubIcon fontSize="large" />{" "}
-                    <a href="https://github.com/szaster">Github </a>
-                  </Typography>
+                  <LinkedInIcon
+                    onClick={(event) =>
+                      (window.location.href =
+                        "https://www.linkedin.com/in/svitlana-zaster-77a9a06b/")
+                    }
+                    fontSize="large"
+                    className={classes.clickableIconIn}
+                  />{" "}
+                  <GitHubIcon
+                    onClick={(event) =>
+                      (window.location.href = "https://github.com/szaster")
+                    }
+                    className={classes.clickableIconGh}
+                    fontSize="large"
+                  />{" "}
                 </Typography>
               </Box>
-            </Stack>
+            </Box>
           </Typography>
         </Paper>
       </Container>
