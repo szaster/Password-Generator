@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../theme";
 import {
   Typography,
   makeStyles,
@@ -46,7 +46,7 @@ function About() {
               fontSize={16}
               m={7}
             >
-              <p>
+              <p color="secondary">
                 This application generates random passwords using
                 Crypto.getRandomValues() method, which allows to create
                 cryptographically strong random values with a high entropy. As a
