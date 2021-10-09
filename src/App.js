@@ -49,7 +49,6 @@ function PasswordDisplay(props) {
             paddingBottom={3}
           >
             {password}
-            {/* <Button className={classes.left}>Copy</Button> */}
           </Box>
         </Typography>
       </Paper>

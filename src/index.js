@@ -8,13 +8,12 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./theme";
 
 ReactDOM.render(
-  // <React.StrictMode>
   <Router>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <App />
     </ThemeProvider>
   </Router>,
-  // </React.StrictMode>,
+
   document.getElementById("root")
 );

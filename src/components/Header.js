@@ -21,35 +21,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// function MenuLink({ label, to, activeOnlyWhenExact }) {
-//   let match = useRouteMatch({
-//     path: to,
-//     exact: activeOnlyWhenExact,
-//   });
-
-//   return (
-//     <div className={match ? "active" : ""}>
-//       {match}
-//       <Link to={to}>{label}</Link>
-//     </div>
-//   );
-// }
+function makeLink(pathname) {
+  switch (pathname) {
+    case "/about":
+      return { to: "/", text: "Home" };
+    default:
+      return { to: "/about", text: "About" };
+  }
+}
 
 function HeaderLink(props) {
-  switch (props.pathname) {
-    case "/about":
-      return (
-        <Link to="/" style={{ color: "white", fontWeight: "bold" }}>
-          Home
-        </Link>
-      );
-    default:
-      return (
-        <Link to="about" style={{ color: "white", fontWeight: "bold" }}>
-          About
-        </Link>
-      );
-  }
+  const { to, text } = makeLink(props.pathname);
+  return (
+    <Link to={to} style={{ color: "white", fontWeight: "bold" }}>
+      {text}
+    </Link>
+  );
 }
 
 function Header() {
@@ -61,10 +48,6 @@ function Header() {
     <AppBar color="primary" position="fixed">
       <Toolbar>
         <LockIcon />
-
-        {/* <MenuLink activeOnlyWhenExact={true} to="/" label="Home" /> */}
-        {/* <MenuLink to="/about" label="About" /> */}
-
         <div className={classes.layout}>
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
