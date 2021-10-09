@@ -9,12 +9,10 @@ import {
   Paper,
   Container,
   Avatar,
-  Grid,
 } from "@material-ui/core";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import Stack from "@mui/material/Stack";
-import { Card, Image, Icon, Rating, Transition, Menu } from "semantic-ui-react";
+
 // import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

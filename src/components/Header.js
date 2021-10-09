@@ -8,7 +8,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,22 +21,55 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header() {
-  // const location = useLocation();
+// function MenuLink({ label, to, activeOnlyWhenExact }) {
+//   let match = useRouteMatch({
+//     path: to,
+//     exact: activeOnlyWhenExact,
+//   });
 
+//   return (
+//     <div className={match ? "active" : ""}>
+//       {match}
+//       <Link to={to}>{label}</Link>
+//     </div>
+//   );
+// }
+
+function HeaderLink(props) {
+  switch (props.pathname) {
+    case "/about":
+      return (
+        <Link to="/" style={{ color: "white", fontWeight: "bold" }}>
+          Home
+        </Link>
+      );
+    default:
+      return (
+        <Link to="about" style={{ color: "white", fontWeight: "bold" }}>
+          About
+        </Link>
+      );
+  }
+}
+
+function Header() {
+  const location = useLocation();
+  console.log("Location", location);
   const classes = useStyles();
 
   return (
     <AppBar color="primary" position="fixed">
       <Toolbar>
         <LockIcon />
+
+        {/* <MenuLink activeOnlyWhenExact={true} to="/" label="Home" /> */}
+        {/* <MenuLink to="/about" label="About" /> */}
+
         <div className={classes.layout}>
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <Link to="about" style={{ color: "white", fontWeight: "bold" }}>
-            About
-          </Link>
+          <HeaderLink pathname={location.pathname} />
         </div>
       </Toolbar>
     </AppBar>

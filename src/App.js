@@ -5,7 +5,13 @@ import Header from "./components/Header";
 import About from "./components/AboutPage";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@material-ui/core";
-import { Switch, Route } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 const initialOptions = {
   lowercase: true,
@@ -127,17 +133,19 @@ function Home() {
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
