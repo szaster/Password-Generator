@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-// import "../theme";
 
 import {
+  Card,
   Typography,
   makeStyles,
   Box,
@@ -10,20 +10,15 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-// import { Link } from "react-router-dom";
-
 const useStyles = makeStyles((theme) => ({
   root: { display: "flex", padding: "0px 70px" },
-  rowLayout: {
-    display: "flex",
-    alignItems: "baseline",
-  },
-  left: { marginRight: "auto" }, //aligns Flexboxes to the left!
-  positionAvatar: {
-    display: "flex",
+  card: {
+    maxWidth: 350,
+    margin: "auto",
   },
 
   clickableIconIn: {
@@ -39,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-// const location = useLocation();
 
 function About() {
   const classes = useStyles();
@@ -63,7 +56,6 @@ function About() {
               paddingTop={1}
               paddingLeft={1}
               textAlign="left"
-              // fontWeight="medium"
               fontSize={16}
               m={7}
             >
@@ -100,69 +92,70 @@ function About() {
           </Typography>
         </Paper>
 
-        <Paper
+        <Card
+          className={classes.card}
           elevation={10}
           outlined
           square
           m={2}
           style={{ background: "#DCEDC8" }}
         >
-          <Typography component="div" variant="subtitle2" gutterBottom>
-            <Box
-              paddingBottom={3}
-              paddingTop={3}
-              paddingLeft={1}
-              textAlign="left"
-              fontSize={19}
+          <Box
+            paddingBottom={2}
+            paddingTop={2}
+            paddingLeft={5}
+            textAlign="center"
+            fontSize={15}
+            display="flex"
+            flexDirection="row"
+            padding={1}
+            m={1}
+          >
+            <Avatar
+              style={{ height: 100, width: 100 }}
               display="flex"
-              flexDirection="column"
-              padding={1}
-              m={7}
-            >
-              <Avatar
-                style={{ height: 170, width: 170 }}
-                // display="flex"
-                className={classes.positionAvatar}
-                alt="Svitlana Zaster"
-                src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
-              />
-              <Typography variant="subtitle3">
-                Svitlana Zaster | Full Stack Web Developer
+              alt="Svitlana Zaster"
+              src="https://avatars0.githubusercontent.com/u/41549193?s=460&u=db37f111050f68541fbc9518cb365aa225e070f7&v=4"
+            />
+            <Box paddingTop={5} paddingLeft={2}>
+              <Typography variant="h6" component="h5">
+                Svitlana Zaster
               </Typography>
-
-              <Typography>
-                <Box
-                  paddingBottom={1}
-                  paddingTop={1}
-                  paddingLeft={1}
-                  textAlign="left"
-                  fontSize={20}
-                  display="flex"
-                  flexDirection="row"
-                  padding={1}
-                  m={1}
-                >
-                  Connect with me:
-                  <LinkedInIcon
-                    onClick={(event) =>
-                      (window.location.href =
-                        "https://www.linkedin.com/in/svitlana-zaster-77a9a06b/")
-                    }
-                    fontSize="large"
-                    className={classes.clickableIconIn}
-                  />{" "}
-                  <GitHubIcon
-                    onClick={(event) =>
-                      (window.location.href = "https://github.com/szaster")
-                    }
-                    className={classes.clickableIconGh}
-                    fontSize="large"
-                  />{" "}
-                </Box>
+              <Typography variant="h7" component="h5">
+                Full Stack Web Developer
               </Typography>
             </Box>
-          </Typography>
-        </Paper>
+          </Box>
+
+          <Box
+            paddingBottom={1}
+            paddingTop={0}
+            paddingLeft={8}
+            textAlign="center"
+            fontSize={15}
+            display="flex"
+            flexDirection="row"
+            padding={1}
+            m={1}
+          >
+            Connect with me:
+            <LinkedInIcon
+              onClick={(event) =>
+                (window.location.href =
+                  "https://www.linkedin.com/in/svitlana-zaster-77a9a06b/")
+              }
+              fontSize="large"
+              className={classes.clickableIconIn}
+            />{" "}
+            <GitHubIcon
+              onClick={(event) =>
+                (window.location.href = "https://github.com/szaster")
+              }
+              className={classes.clickableIconGh}
+              fontSize="large"
+            />{" "}
+          </Box>
+        </Card>
       </Container>
     </div>
   );
