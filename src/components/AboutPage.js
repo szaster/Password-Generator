@@ -10,7 +10,7 @@ import {
   Container,
   Avatar,
 } from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
+
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -98,13 +98,14 @@ function About() {
             </Box>
           </Typography>
         </Paper>
-
+        <br />
+        <br />
         <Card
           className={classes.card}
           elevation={10}
           outlined
           square
-          m={2}
+          m={3}
           style={{ background: "#DCEDC8" }}
         >
           <Box

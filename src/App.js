@@ -4,7 +4,13 @@ import Options from "./components/Options";
 import Header from "./components/Header";
 import About from "./components/AboutPage";
 import RegeneratePasswordButton from "./components/RegenerateButton";
-import { Paper, Box, Container, Typography } from "@material-ui/core";
+import {
+  Paper,
+  Box,
+  Container,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
 import {
   Switch,
   Route,
@@ -12,6 +18,14 @@ import {
   useRouteMatch,
   BrowserRouter as Router,
 } from "react-router-dom";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 250,
+    margin: "auto",
+    display: "flex",
+  },
+}));
 
 const initialOptions = {
   lowercase: true,
@@ -36,17 +50,20 @@ function generatePasswordIndexes(passwordLength, max) {
 
 function PasswordDisplay(props) {
   const password = props.password || "not set";
+  const classes = useStyles;
   return (
     <div>
-      <Paper style={{ background: "#b2dfdb" }}>
+      <Paper style={{ background: "#b2dfdb" }} className={classes.root}>
         <Typography component="div" variant="subtitle1" gutterBottom>
           <Box
             textAlign="center"
             fontWeight="fontWeightLarge"
-            fontSize={30}
+            fontSize={25}
             m={3}
-            paddingTop={3}
-            paddingBottom={3}
+            paddingTop={2}
+            paddingRight={2}
+            paddingLeft={0}
+            paddingBottom={2}
           >
             {password}
           </Box>
