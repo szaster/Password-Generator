@@ -15,7 +15,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex", padding: "0px 70px" },
+  root: { display: "flex", padding: "0px 10px" },
+  media: {
+    height: 140,
+  },
   card: {
     maxWidth: 350,
     margin: "auto",
@@ -42,7 +45,7 @@ function About() {
   console.log(location);
   return (
     <div className={classes.root}>
-      <Container style={{ paddingTop: 90 }} maxWidth="sm" m={10}>
+      <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
         <Paper
           elevation={10}
           outlined
@@ -52,24 +55,30 @@ function About() {
         >
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
-              paddingBottom={2}
+              paddingBottom={1}
               paddingTop={1}
+              borderBottom={1}
               paddingLeft={1}
-              textAlign="left"
-              fontSize={16}
-              m={7}
+              textAlign="center"
+              fontSize={20}
+              fontWeight="fontWeightMedium"
+              m={1}
             >
-              <Typography>
-                <Box
-                  textAlign="center"
-                  fontWeight="fontWeightLarge"
-                  fontSize={30}
-                  m={1}
-                  paddingTop={0}
-                  paddingBottom={0}
-                >
-                  About this application
-                </Box>
+              {/* <Typography variant="h5" component="h6"> */}
+              About this application
+              {/* </Typography> */}
+            </Box>
+            <Box
+              paddingLeft={3}
+              paddingTop={1}
+              paddingBottom={1}
+              textAlign="center"
+              fontWeight="fontWeightMedium"
+              fontSize={15}
+              textAlign="left"
+              m={1}
+            >
+              <Typography variant="body" component="p">
                 This application generates random passwords using
                 Crypto.getRandomValues() method, which allows to create
                 cryptographically strong random values with a high entropy. As a
@@ -78,16 +87,16 @@ function About() {
                 allows to password customization. The app does not store the
                 passwords neither locally, nor remotely. Please save your newly
                 generated passwords on your machine.{" "}
+                <p>
+                  Read more on password strength{" "}
+                  <a
+                    href="https://en.wikipedia.org/wiki/Password_strength"
+                    target="_blank"
+                  >
+                    here
+                  </a>
+                </p>
               </Typography>
-              <p>
-                Read more on password strength{" "}
-                <a
-                  href="https://en.wikipedia.org/wiki/Password_strength"
-                  target="_blank"
-                >
-                  here
-                </a>
-              </p>
             </Box>
           </Typography>
         </Paper>
@@ -112,6 +121,7 @@ function About() {
             m={1}
           >
             <Avatar
+              className={classes.media}
               style={{ height: 100, width: 100 }}
               display="flex"
               alt="Svitlana Zaster"

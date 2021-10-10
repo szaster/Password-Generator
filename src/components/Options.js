@@ -41,7 +41,7 @@ function Options(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid style={{ paddingTop: 90 }} item xs={12}>
+        <Grid style={{ paddingTop: 30 }} item xs={12}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               borderBottom={1}

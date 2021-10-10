@@ -107,7 +107,7 @@ function Home() {
 
   return (
     <div className="App">
-      <Container maxWidth="sm" m={10}>
+      <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
         <Paper
           elevation={10}
           outlined
