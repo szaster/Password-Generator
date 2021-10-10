@@ -56,7 +56,7 @@ function About() {
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               paddingBottom={1}
-              paddingTop={1}
+              paddingTop={2}
               borderBottom={1}
               paddingLeft={1}
               textAlign="center"
@@ -64,9 +64,7 @@ function About() {
               fontWeight="fontWeightMedium"
               m={1}
             >
-              {/* <Typography variant="h5" component="h6"> */}
               About this application
-              {/* </Typography> */}
             </Box>
             <Box
               paddingLeft={3}
