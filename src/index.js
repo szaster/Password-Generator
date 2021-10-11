@@ -5,14 +5,14 @@ import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "./theme";
+import DarkModeToggler from "./theme";
 
 ReactDOM.render(
   <Router>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
+    {/* <ThemeProvider theme={DarkModeToggler}> */}
+    <CssBaseline />
+    <App />
+    {/* </ThemeProvider> */}
   </Router>,
 
   document.getElementById("root")

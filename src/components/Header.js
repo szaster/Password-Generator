@@ -8,6 +8,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
+import DarkModeToggler from "../theme";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +53,7 @@ function Header() {
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
+          <DarkModeToggler />
           <HeaderLink pathname={location.pathname} />
         </div>
       </Toolbar>
