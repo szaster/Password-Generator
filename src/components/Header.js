@@ -8,6 +8,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
+import DarkModeToggler from "../theme";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,9 +34,11 @@ function makeLink(pathname) {
 function HeaderLink(props) {
   const { to, text } = makeLink(props.pathname);
   return (
-    <Link to={to} style={{ color: "white", fontWeight: "bold" }}>
-      {text}
-    </Link>
+    <>
+      <Link to={to} style={{ color: "white", fontWeight: "bold" }}>
+        {text}
+      </Link>
+    </>
   );
 }
 
@@ -52,7 +55,10 @@ function Header() {
           <Typography className={classes.title} variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <HeaderLink pathname={location.pathname} />
+          <div>
+            <DarkModeToggler />
+            <HeaderLink pathname={location.pathname} />
+          </div>
         </div>
       </Toolbar>
     </AppBar>
