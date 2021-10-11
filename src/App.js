@@ -3,7 +3,7 @@ import "./App.css";
 import Options from "./components/Options";
 import Header from "./components/Header";
 import About from "./components/AboutPage";
-
+import DarkModeToggler from "./components/DarkMode";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import {
   Paper,
@@ -133,6 +133,7 @@ function Home() {
           m={20}
           style={{ background: "#eceff1" }}
         >
+          <DarkModeToggler />
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay
             handleNewOptions={handleNewOptions}
