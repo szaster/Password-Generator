@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { Switch, FormControlLabel } from "@material-ui/core";
-import { createTheme } from "@material-ui/core/styles";
+import { Box } from "@material-ui/core";
+import IconButton from "@mui/material/IconButton";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+
+import { useTheme, createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   teal,
   green,
@@ -9,52 +13,61 @@ import {
   amber,
   purple,
   yellow,
-} from "@material-ui/core/colors";
-import { ThemeProvider } from "@material-ui/styles";
+} from "@mui/material/colors";
 
-const themeObject = createTheme({
-  palette: {
-    type: "light",
-    primary: purple,
-    secondary: teal,
-  },
-  typography: {
-    fontFamily: "Bitter",
-  },
-});
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-const useDarkMode = () => {
-  const [theme, setTheme] = useState(themeObject);
-
-  const {
-    palette: { type },
-  } = theme;
-  const toggleDarkMode = () => {
-    const updatedTheme = {
-      ...theme,
-      palette: {
-        ...theme.palette,
-        type: type === "light" ? "dark" : "light",
-      },
-    };
-    setTheme(updatedTheme);
-  };
-  return [theme, toggleDarkMode];
-};
-
-const DarkModeToggler = () => {
-  const [theme, toggleDarkMode] = useDarkMode();
-
-  const themeConfig = createTheme(theme);
-
-  console.log("the theme is:", themeConfig);
+function ThemeApp() {
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
   return (
-    <ThemeProvider theme={themeConfig}>
-      <FormControlLabel
-        control={<Switch onClick={toggleDarkMode} label={`Toggle Dark Mode`} />}
-      />
-    </ThemeProvider>
+    <>
+      {theme.palette.mode} mode{" "}
+      <IconButton
+        sx={{ ml: 1 }}
+        onClick={colorMode.toggleColorMode}
+        color="inherit"
+      >
+        {theme.palette.mode === "dark" ? (
+          <Brightness7Icon />
+        ) : (
+          <Brightness4Icon />
+        )}
+      </IconButton>
+    </>
+  );
+}
+
+const ToggleColorMode = () => {
+  const [mode, setMode] = React.useState("light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+          primary: purple,
+          secondary: teal,
+        },
+      }),
+    [mode]
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <ThemeApp />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 
-export default DarkModeToggler;
+export default ToggleColorMode;
