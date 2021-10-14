@@ -4,6 +4,7 @@ import { makeStyles } from "@mui/styles";
 import { AppBar, Typography, Toolbar, Button, Box } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 import ToggleColorMode from "../theme";
+import ThemeApp from "./ThemeApp";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -51,7 +52,7 @@ function Header() {
             Random Password Generator
           </Typography>
           <div>
-            <ToggleColorMode />
+            {/* <ThemeApp /> */}
             <HeaderLink pathname={location.pathname} />
           </div>
         </div>

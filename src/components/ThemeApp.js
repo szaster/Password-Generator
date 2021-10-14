@@ -1,8 +1,9 @@
-// import React, { useState } from "react";
+// import React from "react";
 // import IconButton from "@mui/material/IconButton";
 // import Brightness4Icon from "@mui/icons-material/Brightness4";
 // import Brightness7Icon from "@mui/icons-material/Brightness7";
-// import { Box } from "@mui/system";
+
+// import { Paper, Box, Container, Typography } from "@mui/material";
 
 // import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 // import {
@@ -60,38 +61,4 @@
 //   );
 // }
 
-// function ToggleColorMode() {
-//   const [mode, setMode] = React.useState("light");
-//   const colorMode = React.useMemo(
-//     () => ({
-//       toggleColorMode: () => {
-//         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-//       },
-//     }),
-//     []
-//   );
-
-//   const theme = React.useMemo(
-//     () =>
-//       createTheme({
-//         palette: {
-//           mode,
-//           secondary: teal,
-//           primary: red,
-//         },
-//       }),
-//     [mode]
-//   );
-
-//   return (
-//     <ColorModeContext.Provider value={colorMode}>
-//       <ThemeProvider theme={theme}>
-//         <ThemeApp />
-//       </ThemeProvider>
-//     </ColorModeContext.Provider>
-//   );
-// }
-
-// export default ToggleColorMode;
-
-// // export default theme;
+// export default ThemeApp;

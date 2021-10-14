@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
+
 import Options from "./components/Options";
 import Header from "./components/Header";
 import About from "./components/AboutPage";
 import { makeStyles } from "@mui/styles";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 
+import IconButton from "@mui/material/IconButton";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@mui/material";
 import {
@@ -14,6 +19,41 @@ import {
   useRouteMatch,
   BrowserRouter as Router,
 } from "react-router-dom";
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+function ThemeApp() {
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        bgcolor: "background.default",
+        color: "text.primary",
+        borderRadius: 1,
+        p: 3,
+      }}
+    >
+      {theme.palette.mode} mode
+      <IconButton
+        sx={{ ml: 1 }}
+        onClick={colorMode.toggleColorMode}
+        color="inherit"
+      >
+        {theme.palette.mode === "dark" ? (
+          <Brightness7Icon />
+        ) : (
+          <Brightness4Icon />
+        )}
+      </IconButton>
+    </Box>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -121,6 +161,7 @@ function Home() {
   return (
     <div className="App">
       <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
+        <ThemeApp />
         <Paper
           elevation={10}
           outlined
@@ -144,20 +185,46 @@ function Home() {
 }
 
 function App() {
+  const [mode, setMode] = React.useState("light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+          // secondary: teal,
+          // primary: red,
+        },
+      }),
+    [mode]
+  );
+
   return (
-    <Router>
-      <div>
-        <Header />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <div>
+            <Header />
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
