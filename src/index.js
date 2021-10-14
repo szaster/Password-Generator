@@ -11,11 +11,12 @@ import theme from "./theme";
 ReactDOM.render(
   <Router>
     {/* <StyledEngineProvider injectFirst> */}
-    {/* <ThemeProvider theme={theme}> */}
-    {/* <CssBaseline /> */}
-    <App />
-    {/* </StyledEngineProvider> */}
-    {/* </ThemeProvider>/ */}
+    <ThemeProvider theme={theme}>
+      {/* <CssBaseline /> */}
+      <App />
+      {/* </StyledEngineProvider> */}
+    </ThemeProvider>
+    /
   </Router>,
 
   document.getElementById("root")

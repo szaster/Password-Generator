@@ -3,13 +3,13 @@ import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-import { teal, purple } from "@mui/material/colors";
+import { teal, red, purple } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    type: "dark",
-    primary: purple,
+    type: "light",
+    primary: red,
     secondary: teal,
   },
 });
