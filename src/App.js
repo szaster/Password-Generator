@@ -208,10 +208,10 @@ function App() {
   );
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <div>
+    <Router>
+      <div>
+        <ColorModeContext.Provider value={colorMode}>
+          <ThemeProvider theme={theme}>
             <Header />
             <Switch>
               <Route path="/about">
@@ -221,10 +221,10 @@ function App() {
                 <Home />
               </Route>
             </Switch>
-          </div>
-        </Router>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+          </ThemeProvider>
+        </ColorModeContext.Provider>
+      </div>
+    </Router>
   );
 }
 
