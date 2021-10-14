@@ -41,7 +41,8 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <AppBar color="primary" position="fixed">
+    // <AppBar color="primary" position="fixed">
+    <AppBar color="white" position="fixed">
       <Toolbar>
         <LockIcon />
         <div className={classes.layout}>

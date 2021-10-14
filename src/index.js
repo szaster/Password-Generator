@@ -6,12 +6,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { StyledEngineProvider } from "@mui/material/styles";
 import App from "./App";
 // import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "./theme";
+import ToggleColorMode from "./theme";
 
 ReactDOM.render(
   <Router>
     {/* <StyledEngineProvider injectFirst> */}
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={ToggleColorMode}>
       {/* <CssBaseline /> */}
       <App />
       {/* </StyledEngineProvider> */}

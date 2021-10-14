@@ -73,7 +73,7 @@ function Options(props) {
                   checked={options.lowercase}
                   onChange={handleChange}
                   name="lowercase"
-                  color="primary"
+                  // color="primary"
                   position="fixed"
                 />
               }
@@ -88,7 +88,7 @@ function Options(props) {
                   checked={options.uppercase}
                   onChange={handleChange}
                   name="uppercase"
-                  color="primary"
+                  // color="primary"
                   position="fixed"
                 />
               }
@@ -105,7 +105,7 @@ function Options(props) {
                   checked={options.specialCharacters}
                   onChange={handleChange}
                   name="specialCharacters"
-                  color="primary"
+                  // color="primary"
                   position="fixed"
                 />
               }
@@ -120,7 +120,7 @@ function Options(props) {
                   checked={options.numbers}
                   onChange={handleChange}
                   name="numbers"
-                  color="primary"
+                  // color="primary"
                   position="fixed"
                 />
               }
