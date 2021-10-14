@@ -1,19 +1,12 @@
 import React from "react";
-import LockIcon from "@material-ui/icons/Lock";
-import {
-  AppBar,
-  Typography,
-  makeStyles,
-  Toolbar,
-  Button,
-  Box,
-} from "@material-ui/core";
-import DarkModeToggler from "../theme";
+import LockIcon from "@mui/icons-material/Lock";
+import { makeStyles } from "@mui/styles";
+import { AppBar, Typography, Toolbar, Button, Box } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
-    marginLeft: theme.spacing(2),
+    marginLeft: "20px",
   },
   layout: {
     display: "flex",
@@ -56,7 +49,7 @@ function Header() {
             Random Password Generator
           </Typography>
           <div>
-            <DarkModeToggler />
+            {/* <DarkModeToggler /> */}
             <HeaderLink pathname={location.pathname} />
           </div>
         </div>

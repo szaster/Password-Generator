@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Box } from "@material-ui/core";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-import { createTheme } from "@material-ui/core/styles";
-import { teal, purple } from "@material-ui/core/colors";
+import { teal, purple } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {

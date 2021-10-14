@@ -1,15 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
 
-import {
-  Card,
-  Typography,
-  makeStyles,
-  Box,
-  Paper,
-  Container,
-  Avatar,
-} from "@material-ui/core";
+import { Card, Typography, Box, Paper, Container, Avatar } from "@mui/material";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

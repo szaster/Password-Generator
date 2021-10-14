@@ -1,8 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Box } from "@material-ui/core";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles } from "@mui/styles";
+import { Grid, Typography, Box } from "@mui/material";
+import { FormControlLabel } from "@mui/material";
+import { Checkbox } from "@mui/material";
 import CharactersNumber from "./CharactersNumber";
 
 const useStyles = makeStyles((theme) => ({

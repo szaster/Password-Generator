@@ -3,15 +3,10 @@ import "./App.css";
 import Options from "./components/Options";
 import Header from "./components/Header";
 import About from "./components/AboutPage";
+import { makeStyles } from "@mui/styles";
 
 import RegeneratePasswordButton from "./components/RegenerateButton";
-import {
-  Paper,
-  Box,
-  Container,
-  Typography,
-  makeStyles,
-} from "@material-ui/core";
+import { Paper, Box, Container, Typography } from "@mui/material";
 import {
   Switch,
   Route,
