@@ -9,10 +9,10 @@ import {
   teal,
   green,
   red,
-  deepPurple,
   amber,
+  grey,
+  deepOrange,
   purple,
-  yellow,
 } from "@mui/material/colors";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -20,9 +20,20 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 function ThemeApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+
   return (
-    <>
-      {theme.palette.mode} mode{" "}
+    <Box
+      sx={{
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        bgcolor: "pink",
+        color: "text.primary",
+        borderRadius: 1,
+        p: 3,
+      }}
+    >
       <IconButton
         sx={{ ml: 1 }}
         onClick={colorMode.toggleColorMode}
@@ -34,7 +45,7 @@ function ThemeApp() {
           <Brightness4Icon />
         )}
       </IconButton>
-    </>
+    </Box>
   );
 }
 
@@ -54,8 +65,6 @@ const ToggleColorMode = () => {
       createTheme({
         palette: {
           mode,
-          primary: purple,
-          secondary: teal,
         },
       }),
     [mode]
