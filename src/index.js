@@ -5,18 +5,18 @@ import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { StyledEngineProvider } from "@mui/material/styles";
 import App from "./App";
-// import CssBaseline from "@material-ui/core/CssBaseline";
-import ToggleColorMode from "./theme";
+import CssBaseline from "@mui/material/CssBaseline";
+// import ToggleColorMode from "./theme";
+import theme from "./theme";
 
 ReactDOM.render(
   <Router>
     {/* <StyledEngineProvider injectFirst> */}
-    <ThemeProvider theme={ToggleColorMode}>
-      {/* <CssBaseline /> */}
-      <App />
-      {/* </StyledEngineProvider> */}
-    </ThemeProvider>
-    /
+    {/* <ThemeProvider theme={theme}> */}
+    {/* <CssBaseline /> */}
+    <App />
+    {/* </ThemeProvider> */}
+    {/* </StyledEngineProvider> */}
   </Router>,
 
   document.getElementById("root")

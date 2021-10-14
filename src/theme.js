@@ -3,8 +3,17 @@ import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { Box } from "@mui/system";
-// import { teal, red, purple } from "@mui/mayterial/colors";
-import { createTheme } from "@mui/material/styles";
+
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  teal,
+  green,
+  red,
+  amber,
+  grey,
+  deepOrange,
+  purple,
+} from "@mui/material/colors";
 
 // const theme = createTheme({
 //   palette: {
@@ -15,17 +24,6 @@ import { createTheme } from "@mui/material/styles";
 // });
 
 // export default theme;
-
-import { useTheme, ThemeProvider } from "@mui/material/styles";
-import {
-  teal,
-  green,
-  red,
-  amber,
-  grey,
-  deepOrange,
-  purple,
-} from "@mui/material/colors";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -40,12 +38,13 @@ function ThemeApp() {
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
-        bgcolor: "pink",
+        bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
         p: 3,
       }}
     >
+      {theme.palette.mode} mode
       <IconButton
         sx={{ ml: 1 }}
         onClick={colorMode.toggleColorMode}
@@ -61,7 +60,7 @@ function ThemeApp() {
   );
 }
 
-const ToggleColorMode = () => {
+function ToggleColorMode() {
   const [mode, setMode] = React.useState("light");
   const colorMode = React.useMemo(
     () => ({
@@ -77,6 +76,8 @@ const ToggleColorMode = () => {
       createTheme({
         palette: {
           mode,
+          secondary: teal,
+          primary: red,
         },
       }),
     [mode]
@@ -89,6 +90,8 @@ const ToggleColorMode = () => {
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
-};
+}
 
 export default ToggleColorMode;
+
+// export default theme;

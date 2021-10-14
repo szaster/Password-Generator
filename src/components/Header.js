@@ -3,6 +3,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import { makeStyles } from "@mui/styles";
 import { AppBar, Typography, Toolbar, Button, Box } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
+import ToggleColorMode from "../theme";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -42,7 +43,7 @@ function Header() {
 
   return (
     // <AppBar color="primary" position="fixed">
-    <AppBar color="white" position="fixed">
+    <AppBar color="primary" position="fixed">
       <Toolbar>
         <LockIcon />
         <div className={classes.layout}>
@@ -50,7 +51,7 @@ function Header() {
             Random Password Generator
           </Typography>
           <div>
-            {/* <DarkModeToggler /> */}
+            <ToggleColorMode />
             <HeaderLink pathname={location.pathname} />
           </div>
         </div>
