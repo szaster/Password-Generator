@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
 
-import Options from "./components/Options";
-import Header from "./components/Header";
-import About from "./components/AboutPage";
+import Options from "./pages/components/Options";
+import Header from "./pages/Header";
+import About from "./pages/AboutPage";
 import { makeStyles } from "@mui/styles";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import RegeneratePasswordButton from "./components/RegenerateButton";
+import RegeneratePasswordButton from "./pages/components/RegenerateButton";
 import { Paper, Box, Container, Typography } from "@mui/material";
 import {
   Switch,
@@ -19,8 +19,15 @@ import {
   useRouteMatch,
   BrowserRouter as Router,
 } from "react-router-dom";
-
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+import {
+  teal,
+  green,
+  red,
+  amber,
+  grey,
+  deepOrange,
+  purple,
+} from "@mui/material/colors";
 
 function ThemeApp() {
   const theme = useTheme();
@@ -159,9 +166,9 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{ paddingTop: 110 }}>
+      <ThemeApp />
       <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
-        <ThemeApp />
         <Paper
           elevation={10}
           outlined
@@ -200,8 +207,8 @@ function App() {
       createTheme({
         palette: {
           mode,
-          // secondary: teal,
-          // primary: red,
+          secondary: teal,
+          primary: red,
         },
       }),
     [mode]
