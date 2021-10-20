@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function About() {
+export function About() {
   const classes = useStyles();
 
   const location = useLocation();
@@ -162,5 +162,3 @@ function About() {
     </div>
   );
 }
-
-export default About;

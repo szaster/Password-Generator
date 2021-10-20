@@ -37,7 +37,7 @@ function HeaderLink(props) {
   );
 }
 
-function Header() {
+export function Header() {
   const location = useLocation();
   console.log("Location", location);
   const classes = useStyles();
@@ -60,5 +60,3 @@ function Header() {
     </AppBar>
   );
 }
-
-export default Header;

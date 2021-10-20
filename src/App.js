@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 import { ColorModeContext } from "./context";
-import { Header } from "./pages/components";
-import { Home, About } from "./pages";
+import { Home, About, Header } from "./pages";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
   Switch,

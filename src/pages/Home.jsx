@@ -1,11 +1,10 @@
 import React from "react";
-import Options from "./pages/components/Options";
+import Options from "./components/Options";
 import { makeStyles } from "@mui/styles";
-import RegeneratePasswordButton from "./pages/components/RegenerateButton";
+import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Container } from "@mui/material";
-import { ThemeApp } from "./pages/components/BoxedThemeToggle";
-
 import { PasswordDisplay } from "./components/PasswordDisplay";
+import { BoxedThemeToggle } from "./components/BoxedThemeToggle";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,7 +81,7 @@ export function Home() {
 
   return (
     <div className="App" style={{ paddingTop: 110 }}>
-      <ThemeApp />
+      <BoxedThemeToggle />
       <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
         <Paper
           elevation={10}
