@@ -3,6 +3,7 @@ import "./App.css";
 import { ColorModeContext } from "./context";
 import { Home, About, Header } from "./pages";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import {
   Switch,
   Route,
@@ -15,9 +16,11 @@ import {
   teal,
   green,
   red,
+  pink,
   amber,
   grey,
   deepOrange,
+  deepPurple,
   purple,
 } from "@mui/material/colors";
 
@@ -36,9 +39,40 @@ function App() {
     () =>
       createTheme({
         palette: {
-          mode,
-          secondary: teal,
-          primary: red,
+          ...(mode === "light"
+            ? {
+                // palette values for light mode
+                primary: purple,
+                // divider: amber[200],
+                background: {
+                  default: amber,
+                  paper: deepOrange[900],
+                },
+                text: {
+                  primary: grey[900],
+                  secondary: grey[800],
+                },
+              }
+            : {
+                // palette values for dark mode
+                primary: deepPurple,
+                // divider: deepOrange[700],
+                background: {
+                  default: deepOrange[900],
+                  paper: deepOrange[900],
+                },
+                text: {
+                  primary: "#fff",
+                  secondary: grey[500],
+                },
+              }),
+          // mode,
+          // secondary: teal,
+          // primary: red,
+          // text: {
+          //   primary: grey[900],
+          //   secondary: grey[800],
+          // },
         },
       }),
     [mode]
@@ -49,6 +83,7 @@ function App() {
       <div>
         <ColorModeContext.Provider value={colorMode}>
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <Header />
             <Switch>
               <Route path="/about">
