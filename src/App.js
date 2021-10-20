@@ -1,17 +1,9 @@
 import React from "react";
 import "./App.css";
-
-import Options from "./pages/components/Options";
-import Header from "./pages/Header";
-import About from "./pages/AboutPage";
-import { makeStyles } from "@mui/styles";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
-
-import IconButton from "@mui/material/IconButton";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import RegeneratePasswordButton from "./pages/components/RegenerateButton";
-import { Paper, Box, Container, Typography } from "@mui/material";
+import { ColorModeContext } from "./context";
+import { Header } from "./pages/components";
+import { Home, About } from "./pages";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
   Switch,
   Route,
@@ -19,6 +11,7 @@ import {
   useRouteMatch,
   BrowserRouter as Router,
 } from "react-router-dom";
+
 import {
   teal,
   green,
@@ -28,168 +21,6 @@ import {
   deepOrange,
   purple,
 } from "@mui/material/colors";
-
-function ThemeApp() {
-  const theme = useTheme();
-  const colorMode = React.useContext(ColorModeContext);
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-        bgcolor: "background.default",
-        color: "text.primary",
-        borderRadius: 1,
-        p: 3,
-      }}
-    >
-      {theme.palette.mode} mode
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={colorMode.toggleColorMode}
-        color="inherit"
-      >
-        {theme.palette.mode === "dark" ? (
-          <Brightness7Icon />
-        ) : (
-          <Brightness4Icon />
-        )}
-      </IconButton>
-    </Box>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 250,
-    margin: "auto",
-    display: "flex",
-  },
-}));
-
-const initialOptions = {
-  lowercase: true,
-  uppercase: true,
-  specialCharacters: true,
-  numbers: true,
-  passwordLength: 10,
-};
-const initialPassword = generatePassword(initialOptions);
-
-function generatePasswordIndexes(passwordLength, max) {
-  const intMax = 2 ** 32 - 1;
-  const numbersArray = window.crypto.getRandomValues(
-    new Uint32Array(passwordLength)
-  );
-
-  const passwordIndexes = numbersArray.map((i) =>
-    Math.floor((max * i) / (intMax + 1))
-  );
-  return passwordIndexes;
-}
-
-function PasswordDisplay(props) {
-  const password = props.password || "not set";
-  const classes = useStyles;
-  return (
-    <div>
-      <Paper style={{ background: "#b2dfdb" }} className={classes.root}>
-        <Typography component="div" variant="subtitle1" gutterBottom>
-          <Box
-            textAlign="center"
-            fontWeight="fontWeightLarge"
-            fontSize={25}
-            m={3}
-            paddingTop={2}
-            paddingRight={2}
-            paddingLeft={0}
-            paddingBottom={2}
-          >
-            {password}
-          </Box>
-        </Typography>
-      </Paper>
-    </div>
-  );
-}
-
-function getCharacters(options) {
-  // password character set
-  const lowerAlphas = "qwertyuiopasdfghjklzxcvbnm";
-  const upperAlphas = lowerAlphas.toUpperCase();
-  const numbers = "0123456789";
-  const special = "!@#$%^&*()_+=-;:/?";
-
-  const allCharacters = [];
-  if (options.lowercase === true) {
-    allCharacters.push(lowerAlphas);
-  }
-  if (options.uppercase === true) {
-    allCharacters.push(upperAlphas);
-  }
-  if (options.specialCharacters === true) {
-    allCharacters.push(special);
-  }
-  if (options.numbers === true) {
-    allCharacters.push(numbers);
-  }
-
-  const charactersPool = allCharacters.join("");
-
-  return charactersPool;
-}
-
-function generatePassword(options) {
-  const charactersPool = getCharacters(options);
-  const indexes = generatePasswordIndexes(
-    options.passwordLength,
-    charactersPool.length
-  );
-  const chars = [];
-  indexes.forEach((idx) => chars.push(charactersPool[idx]));
-  console.log(chars);
-  const password = chars.join("");
-  return password;
-}
-
-function Home() {
-  const [options, setOptions] = React.useState(initialOptions);
-  const [password, setPassword] = React.useState(initialPassword);
-
-  function handleNewOptions(newOptions) {
-    setOptions(newOptions);
-    const newPassword = generatePassword(newOptions);
-    setPassword(newPassword);
-  }
-
-  return (
-    <div className="App" style={{ paddingTop: 110 }}>
-      <ThemeApp />
-      <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
-        <Paper
-          elevation={10}
-          outlined
-          square
-          m={20}
-          style={{ background: "#eceff1" }}
-        >
-          <Options handleNewOptions={handleNewOptions} options={options} />
-          <PasswordDisplay
-            handleNewOptions={handleNewOptions}
-            password={password}
-          />
-        </Paper>
-        <RegeneratePasswordButton
-          handleNewOptions={handleNewOptions}
-          options={options}
-        />
-      </Container>
-    </div>
-  );
-}
 
 function App() {
   const [mode, setMode] = React.useState("light");

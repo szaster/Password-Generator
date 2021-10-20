@@ -3,8 +3,8 @@ import LockIcon from "@mui/icons-material/Lock";
 import { makeStyles } from "@mui/styles";
 import { AppBar, Typography, Toolbar, Button, Box } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
-import ToggleColorMode from "../theme";
-import ThemeApp from "./ThemeApp";
+// import ToggleColorMode from "../../theme";
+// import { BoxedThemeToggle } from "./BoxedThemeToggle";
 
 const useStyles = makeStyles(() => ({
   title: {
