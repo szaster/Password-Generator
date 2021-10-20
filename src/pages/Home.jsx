@@ -13,6 +13,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
 }));
+
 const initialOptions = {
   lowercase: true,
   uppercase: true,
@@ -88,7 +89,7 @@ export function Home() {
           outlined
           square
           m={20}
-          style={{ background: "#eceff1" }}
+          // style={{ background: "#eceff1" }}
         >
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay

@@ -11,12 +11,7 @@ import ToggleColorMode from "./theme";
 
 ReactDOM.render(
   <Router>
-    {/* <StyledEngineProvider injectFirst> */}
-    {/* <ThemeProvider theme={theme}> */}
-
     <App />
-    {/* </ThemeProvider> */}
-    {/* </StyledEngineProvider> */}
   </Router>,
 
   document.getElementById("root")

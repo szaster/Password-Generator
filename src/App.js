@@ -46,7 +46,7 @@ function App() {
                 // divider: amber[200],
                 background: {
                   default: amber,
-                  paper: deepOrange[900],
+                  paper: "#eceff1",
                 },
                 text: {
                   primary: grey[900],
@@ -66,7 +66,7 @@ function App() {
                   secondary: grey[500],
                 },
               }),
-          // mode,
+          mode,
           // secondary: teal,
           // primary: red,
           // text: {
