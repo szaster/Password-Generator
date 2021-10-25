@@ -4,13 +4,7 @@ import { ColorModeContext } from "./context";
 import { Home, About, Header } from "./pages";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import {
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  BrowserRouter as Router,
-} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import {
   teal,
