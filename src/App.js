@@ -37,9 +37,11 @@ function App() {
             ? {
                 // palette values for light mode
                 primary: purple,
+                secondary: teal,
                 background: {
                   default: "#fdf6e3",
                   paper: "#eee8d5",
+                  button: "#93a1a1",
                   // paper: "#93a1a1",
                   // paper:""
                   // paper: "#eceff1",

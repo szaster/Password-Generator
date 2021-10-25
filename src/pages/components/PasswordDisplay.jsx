@@ -7,7 +7,7 @@ export function PasswordDisplay(props) {
   const classes = useStyles;
   return (
     <div>
-      <Paper style={{ background: "#b2dfdb" }} className={classes.root}>
+      <Paper style={{ background: "#93a1a1" }} className={classes.root}>
         <Typography component="div" variant="subtitle1" gutterBottom>
           <Box
             textAlign="center"

@@ -12,7 +12,10 @@ function RegeneratePasswordButton(props) {
 
   return (
     <div>
-      <Button style={{ background: "pink", margin: 20 }} onClick={handleClick}>
+      <Button
+        style={{ background: "#93a1a1", margin: 20 }}
+        onClick={handleClick}
+      >
         <Typography component="div" variant="Title" gutterBottom>
           Regenerate Password
         </Typography>
