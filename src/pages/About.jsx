@@ -39,13 +39,7 @@ export function About() {
   return (
     <div className={classes.root}>
       <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
-        <Paper
-          elevation={10}
-          outlined
-          square
-          m={50}
-          style={{ background: "#eceff1" }}
-        >
+        <Paper elevation={10} outlined square m={50}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
               paddingBottom={1}
@@ -99,7 +93,7 @@ export function About() {
           outlined
           square
           m={3}
-          style={{ background: "#DCEDC8" }}
+          // style={{ background: "#DCEDC8" }}
         >
           <Box
             paddingBottom={2}

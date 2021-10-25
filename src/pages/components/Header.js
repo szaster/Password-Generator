@@ -1,10 +1,8 @@
 import React from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import { makeStyles } from "@mui/styles";
-import { AppBar, Typography, Toolbar, Button, Box } from "@mui/material";
+import { AppBar, Typography, Toolbar } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
-// import ToggleColorMode from "../../theme";
-// import { BoxedThemeToggle } from "./BoxedThemeToggle";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -43,7 +41,6 @@ export function Header() {
   const classes = useStyles();
 
   return (
-    // <AppBar color="primary" position="fixed">
     <AppBar color="primary" position="fixed">
       <Toolbar>
         <LockIcon />
@@ -52,7 +49,6 @@ export function Header() {
             Random Password Generator
           </Typography>
           <div>
-            {/* <ThemeApp /> */}
             <HeaderLink pathname={location.pathname} />
           </div>
         </div>

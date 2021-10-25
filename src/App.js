@@ -37,10 +37,13 @@ function App() {
             ? {
                 // palette values for light mode
                 primary: purple,
-                // divider: amber[200],
                 background: {
-                  default: amber,
-                  paper: "#eceff1",
+                  default: "#fdf6e3",
+                  paper: "#eee8d5",
+                  // paper: "#93a1a1",
+                  // paper:""
+                  // paper: "#eceff1",
+                  // Card: "#DCEDC8",
                 },
                 text: {
                   primary: grey[900],
@@ -52,8 +55,10 @@ function App() {
                 primary: deepPurple,
                 // divider: deepOrange[700],
                 background: {
-                  default: deepOrange[900],
-                  paper: deepOrange[900],
+                  // default: "#002b36",
+                  // paper: "#073642",
+                  default: "#073642",
+                  paper: "#586e75",
                 },
                 text: {
                   primary: "#fff",
@@ -61,12 +66,6 @@ function App() {
                 },
               }),
           mode,
-          // secondary: teal,
-          // primary: red,
-          // text: {
-          //   primary: grey[900],
-          //   secondary: grey[800],
-          // },
         },
       }),
     [mode]
