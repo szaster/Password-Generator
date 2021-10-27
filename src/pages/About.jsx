@@ -20,13 +20,13 @@ const useStyles = makeStyles((theme) => ({
   clickableIconIn: {
     color: "blue",
     "&:hover": {
-      color: "yellow",
+      color: "lime",
     },
   },
   clickableIconGh: {
     color: "black",
     "&:hover": {
-      color: "yellow",
+      color: "lime",
     },
   },
 }));
@@ -38,7 +38,7 @@ export function About() {
   console.log(location);
   return (
     <div className={classes.root}>
-      <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
+      <Container style={{ paddingTop: 90 }} maxWidth="sm" m={1}>
         <Paper elevation={10} outlined square m={50}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
@@ -134,7 +134,6 @@ export function About() {
             padding={1}
             m={1}
           >
-            Connect with me:
             <LinkedInIcon
               onClick={(event) =>
                 (window.location.href =

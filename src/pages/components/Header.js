@@ -3,6 +3,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import { makeStyles } from "@mui/styles";
 import { AppBar, Typography, Toolbar } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
+import { BoxedThemeToggle } from "./BoxedThemeToggle";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -10,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
   layout: {
     display: "flex",
-    flexGrow: 1,
+    flexGrow: 20,
     justifyContent: "space-between",
   },
 }));
@@ -37,22 +38,25 @@ function HeaderLink(props) {
 
 export function Header() {
   const location = useLocation();
-  console.log("Location", location);
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed">
-      <Toolbar>
-        <LockIcon />
-        <div className={classes.layout}>
-          <Typography className={classes.title} variant="h6" component="h1">
-            Random Password Generator
-          </Typography>
-          <div>
-            <HeaderLink pathname={location.pathname} />
+    <div>
+      <AppBar position="fixed">
+        <Toolbar>
+          <LockIcon />
+          <div className={classes.layout}>
+            <Typography className={classes.title} variant="h6" component="h1">
+              Random Password Generator
+            </Typography>
+
+            <div>
+              <BoxedThemeToggle />
+              <HeaderLink pathname={location.pathname} />
+            </div>
           </div>
-        </div>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

@@ -2,22 +2,10 @@ import React from "react";
 import "./App.css";
 import { ColorModeContext } from "./context";
 import { Home, About, Header } from "./pages";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { modeToTheme } from "./theme";
-
-import {
-  teal,
-  green,
-  red,
-  pink,
-  amber,
-  grey,
-  deepOrange,
-  deepPurple,
-  purple,
-} from "@mui/material/colors";
 
 function App() {
   const [mode, setMode] = React.useState("light");
