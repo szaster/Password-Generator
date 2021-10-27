@@ -44,8 +44,9 @@ function Options(props) {
         <Grid style={{ paddingTop: 20 }} item xs={12}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
-              borderBottom={1}
+              paddingTop={2}
               paddingBottom={1}
+              borderBottom={1}
               textAlign="center"
               fontWeight="fontWeightMedium"
               fontSize={20}

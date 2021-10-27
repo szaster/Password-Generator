@@ -29,7 +29,7 @@ const light = {
 
 const dark = {
   // palette values for dark mode
-  primary: purple,
+  primary: red,
   secondary: teal,
   background: {
     default: "#073642",

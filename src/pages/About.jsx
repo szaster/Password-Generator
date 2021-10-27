@@ -9,9 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const useStyles = makeStyles((theme) => ({
   root: { display: "flex", padding: "0px 10px" },
-  media: {
-    height: 140,
-  },
+
   card: {
     maxWidth: 350,
     margin: "auto",
@@ -39,11 +37,11 @@ export function About() {
   return (
     <div className={classes.root}>
       <Container style={{ paddingTop: 90 }} maxWidth="sm" m={1}>
-        <Paper elevation={10} outlined square m={50}>
+        <Paper elevation={10} outlined square m={20}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
-              paddingBottom={1}
               paddingTop={2}
+              paddingBottom={1}
               borderBottom={1}
               paddingLeft={1}
               textAlign="center"

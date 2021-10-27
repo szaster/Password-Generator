@@ -81,14 +81,8 @@ export function Home() {
 
   return (
     <div className="App">
-      <Container style={{ paddingTop: 90 }} maxWidth="sm" m={1}>
-        <Paper
-          elevation={10}
-          outlined
-          square
-          m={20}
-          // style={{ background: "#eceff1" }}
-        >
+      <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
+        <Paper elevation={10} outlined square m={20}>
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay
             handleNewOptions={handleNewOptions}
