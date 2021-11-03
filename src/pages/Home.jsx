@@ -4,7 +4,6 @@ import { makeStyles } from "@mui/styles";
 import RegeneratePasswordButton from "./components/RegenerateButton";
 import { Paper, Container } from "@mui/material";
 import { PasswordDisplay } from "./components/PasswordDisplay";
-import { BoxedThemeToggle } from "./components/BoxedThemeToggle";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,16 +80,9 @@ export function Home() {
   }
 
   return (
-    <div className="App" style={{ paddingTop: 110 }}>
-      <BoxedThemeToggle />
-      <Container style={{ paddingTop: 110 }} maxWidth="sm" m={10}>
-        <Paper
-          elevation={10}
-          outlined
-          square
-          m={20}
-          // style={{ background: "#eceff1" }}
-        >
+    <div className="App">
+      <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
+        <Paper elevation={10} outlined square m={20}>
           <Options handleNewOptions={handleNewOptions} options={options} />
           <PasswordDisplay
             handleNewOptions={handleNewOptions}

@@ -2,21 +2,10 @@ import React from "react";
 import "./App.css";
 import { ColorModeContext } from "./context";
 import { Home, About, Header } from "./pages";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-
-import {
-  teal,
-  green,
-  red,
-  pink,
-  amber,
-  grey,
-  deepOrange,
-  deepPurple,
-  purple,
-} from "@mui/material/colors";
+import { modeToTheme } from "./theme";
 
 function App() {
   const [mode, setMode] = React.useState("light");
@@ -29,49 +18,7 @@ function App() {
     []
   );
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          ...(mode === "light"
-            ? {
-                // palette values for light mode
-                primary: purple,
-                secondary: teal,
-                background: {
-                  default: "#fdf6e3",
-                  paper: "#eee8d5",
-                  button: "#93a1a1",
-                  // paper: "#93a1a1",
-                  // paper:""
-                  // paper: "#eceff1",
-                  // Card: "#DCEDC8",
-                },
-                text: {
-                  primary: grey[900],
-                  secondary: grey[800],
-                },
-              }
-            : {
-                // palette values for dark mode
-                primary: deepPurple,
-                // divider: deepOrange[700],
-                background: {
-                  // default: "#002b36",
-                  // paper: "#073642",
-                  default: "#073642",
-                  paper: "#586e75",
-                },
-                text: {
-                  primary: "#fff",
-                  secondary: grey[500],
-                },
-              }),
-          mode,
-        },
-      }),
-    [mode]
-  );
+  const theme = React.useMemo(() => modeToTheme(mode), [mode]);
 
   return (
     <Router>

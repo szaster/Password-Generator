@@ -1,17 +1,18 @@
 import React from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import { makeStyles } from "@mui/styles";
-import { AppBar, Typography, Toolbar } from "@mui/material";
+import { AppBar, Typography, Toolbar, IconButton } from "@mui/material";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
+import { BoxedThemeToggle } from "./BoxedThemeToggle";
 
 const useStyles = makeStyles(() => ({
-  title: {
-    marginLeft: "20px",
+  leftToolbar: {
+    marginRight: 16,
+    marginLeft: -12,
   },
-  layout: {
-    display: "flex",
-    flexGrow: 1,
-    justifyContent: "space-between",
+  rightToolbar: {
+    marginLeft: "auto",
+    marginRight: -12,
   },
 }));
 
@@ -37,22 +38,26 @@ function HeaderLink(props) {
 
 export function Header() {
   const location = useLocation();
-  console.log("Location", location);
   const classes = useStyles();
 
   return (
-    <AppBar color="primary" position="fixed">
-      <Toolbar>
-        <LockIcon />
-        <div className={classes.layout}>
-          <Typography className={classes.title} variant="h6" component="h1">
+    <div>
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton className={classes.menuButton} color="inherit">
+            <LockIcon />
+          </IconButton>
+
+          <Typography variant="h6" component="h1">
             Random Password Generator
           </Typography>
-          <div>
+
+          <section className={classes.rightToolbar}>
+            <BoxedThemeToggle />
             <HeaderLink pathname={location.pathname} />
-          </div>
-        </div>
-      </Toolbar>
-    </AppBar>
+          </section>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

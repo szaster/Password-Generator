@@ -9,9 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const useStyles = makeStyles((theme) => ({
   root: { display: "flex", padding: "0px 10px" },
-  media: {
-    height: 140,
-  },
+
   card: {
     maxWidth: 350,
     margin: "auto",
@@ -20,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
   clickableIconIn: {
     color: "blue",
     "&:hover": {
-      color: "yellow",
+      color: "lime",
     },
   },
   clickableIconGh: {
     color: "black",
     "&:hover": {
-      color: "yellow",
+      color: "lime",
     },
   },
 }));
@@ -38,12 +36,12 @@ export function About() {
   console.log(location);
   return (
     <div className={classes.root}>
-      <Container style={{ paddingTop: 100 }} maxWidth="sm" m={1}>
-        <Paper elevation={10} outlined square m={50}>
+      <Container style={{ paddingTop: 90 }} maxWidth="sm" m={1}>
+        <Paper elevation={10} outlined square m={20}>
           <Typography component="div" variant="subtitle1" gutterBottom>
             <Box
-              paddingBottom={1}
               paddingTop={2}
+              paddingBottom={1}
               borderBottom={1}
               paddingLeft={1}
               textAlign="center"
@@ -134,7 +132,6 @@ export function About() {
             padding={1}
             m={1}
           >
-            Connect with me:
             <LinkedInIcon
               onClick={(event) =>
                 (window.location.href =

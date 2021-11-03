@@ -26,7 +26,7 @@ function CharactersNumber(props) {
       props.setPasswordLength(0);
     } else if (props.passwordLength > 100) {
       alert("Password length must be less than 36 characters");
-      props.setPasswordLength(36);
+      props.setPasswordLength(30);
     } else if (props.passwordLength < 10) {
       alert("Password length must be at least 10 characters");
       props.setPasswordLength(10);
@@ -51,9 +51,9 @@ function CharactersNumber(props) {
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 5,
+              step: 1,
               min: 10,
-              max: 36,
+              max: 30,
               type: "number",
             }}
           />
@@ -62,7 +62,7 @@ function CharactersNumber(props) {
           <Slider
             type="range"
             min={10}
-            max={36}
+            max={30}
             step={1}
             value={
               typeof props.passwordLength === "number"

@@ -1,6 +1,11 @@
 import React from "react";
-import { Paper, Box, Typography } from "@mui/material";
+import { Paper, Box, Typography, Grid } from "@mui/material";
 import { useStyles } from "../Home";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/system";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 export function PasswordDisplay(props) {
   const password = props.password || "not set";
@@ -8,20 +13,20 @@ export function PasswordDisplay(props) {
   return (
     <div>
       <Paper style={{ background: "#93a1a1" }} className={classes.root}>
-        <Typography component="div" variant="subtitle1" gutterBottom>
-          <Box
-            textAlign="center"
-            fontWeight="fontWeightLarge"
-            fontSize={25}
-            m={3}
-            paddingTop={2}
-            paddingRight={2}
-            paddingLeft={0}
-            paddingBottom={2}
-          >
-            {password}
-          </Box>
-        </Typography>
+        <ThemeProvider theme={theme}>
+          <Typography variant="h4" gutterBottom>
+            <Box
+              textAlign="center"
+              fontWeight="fontWeightLarge"
+              paddingTop={2}
+              paddingRight={2}
+              paddingLeft={0}
+              paddingBottom={2}
+            >
+              {password}
+            </Box>
+          </Typography>
+        </ThemeProvider>
       </Paper>
     </div>
   );
