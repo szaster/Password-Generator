@@ -14,7 +14,7 @@ export function PasswordDisplay(props) {
     <div>
       <Paper style={{ background: "#93a1a1" }} className={classes.root}>
         <ThemeProvider theme={theme}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             <Box
               textAlign="center"
               fontWeight="fontWeightLarge"
